@@ -1,0 +1,459 @@
+{% load static %}
+{% load url_thumbnail %}
+<div id="cf-public" class="crowdfunding-page center-page">
+
+
+    <section class="preview-slider">
+        <div class="container">
+
+            <!-- Preview Slider Header -->
+            <header class="preview-slider__header">
+                <h2 class="preview-slider__title">{{ campaign.title }}</h2>
+            </header><!-- /.preview-slider__header -->
+
+            <!-- Preview Slider Share Menu -->
+            <nav class="preview-nav">
+                <h3 class="preview-nav__title">Share</h3>
+
+                <ul class="preview-nav__list">
+                    <li class="preview-nav__item">
+                        <a href="#" class="preview-nav__link"><img
+                                src="{% static 'dashboard/assets/img/icon-share-1.svg' %}" alt=""></a>
+                    </li>
+                    <li class="preview-nav__item">
+                        <a href="#" class="preview-nav__link"><img
+                                src="{% static 'dashboard/assets/img/icon-share-2.svg' %}" alt=""></a>
+                    </li>
+                    <li class="preview-nav__item">
+                        <a href="#" class="preview-nav__link"><img
+                                src="{% static 'dashboard/assets/img/icon-share-3.svg' %}" alt=""></a>
+                    </li>
+                    <li class="preview-nav__item">
+                        <a href="#" class="preview-nav__link"><img
+                                src="{% static 'dashboard/assets/img/icon-share-4.svg' %}" alt=""></a>
+                    </li>
+                    <li class="preview-nav__item">
+                        <a href="#" class="preview-nav__link"><img
+                                src="{% static 'dashboard/assets/img/icon-share-5.svg' %}" alt=""></a>
+                    </li>
+                </ul>
+            </nav><!-- /.preview-nav -->
+
+            <!-- Primary Slider -->
+            <div class="preview-slider__primary">
+                <div id="sliderPreviewPrimary" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {% if campaign.large_media %}
+                                <li class="splide__slide" data-splide-html-video="{{ campaign.large_media.url }}">
+                                    {% elif campaign.large_image %}
+                                <li class="splide__slide">
+                                    {% else %}
+                                <li class="splide__slide"
+                                    data-splide-{{ campaign.large_media_url|check_url }}="{{ campaign.large_media_url }}">
+                            {% endif %}
+                            <img src="{{ campaign.large_image|add_host }}"
+                                 data-splide-lazy="{{ campaign.large_media_thumbnail }}" alt="Sample Image 00">
+                            </li>
+
+                            {% for small_media in small_medias %}
+                                {% if small_media.file %}
+                                    <li class="splide__slide"
+                                        data-splide-html-video="{{ small_media.file.url }}">
+                                        <img src="https://picsum.photos/id/10/1024/768"
+                                             data-splide-lazy="https://picsum.photos/id/10/260/275"
+                                             alt="Sample Image 00">
+                                    </li>
+                                {% elif small_media.image %}
+                                    <li class="splide__slide">
+                                        <img src="{{ small_media.image|add_host }}"
+                                             data-splide-lazy="https://picsum.photos/id/10/260/275"
+                                             alt="Sample Image 04">
+                                    </li>
+                                {% else %}
+                                    <li class="splide__slide"
+                                        data-splide-{{ small_media.media_url|check_url }}="{{ small_media.media_url }}">
+                                        <img src="https://picsum.photos/id/10/1024/768"
+                                             data-splide-lazy="https://picsum.photos/id/10/260/275"
+                                             alt="Sample Image 01">
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            <!--
+                            <li class="splide__slide" data-splide-video="{{ large_media.file }}">
+                                <img src="https://picsum.photos/id/10/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 01">
+                            </li>
+                            <li class="splide__slide" data-splide-vimeo="https://vimeo.com/215334213">
+                                <img src="https://picsum.photos/id/20/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 02">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="{% static 'dashboard/assets/img/campaign-main-ad-bg.png' %}"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 03">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/40/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 04">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/50/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 05">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/60/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 06">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/70/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 07">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/80/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 08">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://picsum.photos/id/90/1024/768"
+                                     data-splide-lazy="https://picsum.photos/id/10/260/275" alt="Sample Image 09">
+                            </li>
+                            !-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.preview-slider__primary -->
+
+            <!-- Secondary Slider -->
+            <div class="preview-slider__secondary">
+                <div id="sliderPreviewSecondary" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="preview-slider__card {% if campaign.large_is_video %}preview-slider__card--video{% endif %}">
+                                    <img class=".preview-slider__thumb"
+                                         src="{{ campaign.large_media_thumbnail }}" alt="">
+                                </div>
+                            </li>
+                            {% for small_media in small_medias %}
+                                <li class="splide__slide">
+                                    <div class="preview-slider__card {% if small_media.is_video %}preview-slider__card--video{% endif %}">
+                                        <img class=".preview-slider__thumb"
+                                             src="{{ small_media.thumbnail }}" alt="">
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            <!--
+                            <li class="splide__slide">
+                                <div class="preview-slider__card preview-slider__card--video">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/20/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/30/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb"
+                                         src="{% static 'dashboard/assets/img/campaign-main-ad-bg.png' %}"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/50/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/60/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/70/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/80/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="preview-slider__card">
+                                    <img class=".preview-slider__thumb" src="https://picsum.photos/id/90/260/185"
+                                         alt="">
+                                </div>
+                            </li>
+                            !-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.preview-slider__secondary -->
+        </div>
+    </section><!-- /.preview-slider -->
+
+    <!--
+    <div class="main-ad-img">
+        <div class="main-ad-container">
+        </div>
+        <div class="share">
+            <div class="d-flex justify-content-between w-100">
+                <div class="share-item text-white text-uppercase d-flex justify-content-center align-items-center">
+                    <b>Share</b></div>
+                <div class="share-item"><img src="{% static 'dashboard/assets/img/whatsapp-png.png' %}" class="img"
+                                             alt="whatsapp"></div>
+                <div class="share-item"><img src="{% static 'dashboard/assets/img/facebook-png.png' %}" class="img"
+                                             alt="whatsapp"></div>
+                <div class="share-item"><img src="{% static 'dashboard/assets/img/message-png.png' %}" class="img"
+                                             alt="whatsapp"></div>
+                <div class="share-item"><img src="{% static 'dashboard/assets/img/email-png.png' %}" class="img"
+                                             alt="whatsapp"></div>
+                <div class="share-item"><img src="{% static 'dashboard/assets/img/detail.png' %}" class="img"
+                                             alt="whatsapp"></div>
+            </div>
+        </div>
+        <div class="title">
+            {{ campaign.title }}
+        </div>
+    </div>
+
+    <div class="sub-ads MagicScroll mt-3"
+         data-options="width: 100%; speed: 4000; items: 3; arrows: inside; lazyLoad: true;"
+         data-mobile-options="items: 1; speed: 100; autoplay: 5000;">
+        {% for small_media in small_medias %}
+            <div class="sub-ad sub-ad-{{ forloop.counter0 }}">
+                <iframe src="https://player.vimeo.com/video/67394349" alt="video" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="small-medias-slider" class="splide">
+        <div class="splide__track">
+            <ul class="splide__list sub-ads">
+                {% for small_media in small_medias %}
+                    <li class="splide__slide sub-ad sub-ad-{{ forloop.counter0 }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    -->
+
+    <div class="pb-5 border-bottom mt-5 p-10">
+        <!--
+        <div class="text-cus-secondary text-uppercase small ls-2"><b>{{ campaign.cause }}</b>
+            {% if not is_public %}
+                <span class="edit-item ml-2 text-cus-primary" data-nav-link="?tab=tab-about-campaign&tag=nc-camp-cause"><i
+                        class="fas fa-edit"></i></span>
+            {% endif %}
+        </div>
+        !-->
+        <div class="content-title">
+            {{ campaign.title }}
+            {% if not is_public %}
+                <span class="edit-item ml-2 text-cus-primary" data-nav-link="?tab=tab-about-campaign&tag=nc-camp-title"><i
+                        class="fas fa-edit"></i></span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="mt-5 pb-5 border-bottom p-10">
+        <div class="text-cus-secondary text-uppercase mt-5 ls-2"><b>About the campaign</b>
+            {% if not is_public %}
+                <span class="edit-item ml-2 text-cus-primary"
+                      data-nav-link="?tab=tab-about-campaign&tag=nc-camp-description"><i
+                        class="fas fa-edit"></i></span>
+            {% endif %}
+        </div>
+        <p>{{ campaign.description|safe }}
+        </p>
+    </div>
+    {% include 'dashboard/crowdfunding/public/_right_bar_on_mobile.html' %}
+    <!--
+    <div class="manage-info p-10 mt-5">
+        <div class="members-and-contributors pb-md-5 row">
+            <div class="members col-xl-6 mb-5 mb-xl-0 row-item">
+                <div class="text-uppercase text-cus-secondary ls-2"><b>Managers & Members</b></div>
+                <div class="search-bar-group mt-2">
+                    <input type="text" id="search-member" class="search-bar with-plus" placeholder="Search Manager"
+                           onkeyup="onSearchMembers()">
+                    <div class="search-icon"><i class="fas fa-search"></i></div>
+                    <div class="plus-icon"><i class="fas fa-plus"></i></div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="member-group" class="member-group mt-3">
+                        <tr>
+                            <td class="member w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-2">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="role">Administrator</div>
+                                    <div class="to-message"><img
+                                            src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                            width="16px"><span
+                                            class=" ml-2">message</span></div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center ml-auto">
+                                    <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="member w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-2">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="role">Administrator</div>
+                                    <div class="to-message"><img
+                                            src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                            width="16px"><span
+                                            class=" ml-2">message</span></div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center ml-auto">
+                                    <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="member w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-2">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="role">Administrator</div>
+                                    <div class="to-message"><img
+                                            src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                            width="16px"><span
+                                            class=" ml-2">message</span></div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center ml-auto">
+                                    <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="member w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-2">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="role">Administrator</div>
+                                    <div class="to-message"><img
+                                            src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                            width="16px"><span
+                                            class=" ml-2">message</span></div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center ml-auto">
+                                    <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="contributors col-xl-6 row-item">
+                <div class="text-uppercase text-cus-secondary ls-2"><b>Contributors</b></div>
+                <div class="search-bar-group mt-2">
+                    <input type="text" id="search-contributor" class="search-bar" placeholder="Search Contributors"
+                           onkeyup="onSearchContributors()">
+                    <div class="search-icon"><i class="fas fa-search"></i></div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="contributor-group" class="contributor-group mt-3">
+                        <tr>
+                            <td class="contributor w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-4">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="amount">$1,250</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="contributor w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-4">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="amount">$1,250</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="contributor w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-4">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="amount">$1,250</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="contributor w-100">
+                                <div class="photo"></div>
+                                <div class="info ml-4">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="amount">$1,250</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="updates pt-5 pb-5 p-10" style="background-color: #f2f3f5">
+        <div class="text-cus-secondary text-uppercase ls-2  text-center text-md-left">
+            <b>Updates from campaign organizer</b>
+        </div>
+        <div class="updates-content mt-4">
+            <div class="update mt-3">
+                <div class="photo"></div>
+                <div class="info-group">
+                    <div class="info-and-detail">
+                        <div class="info">
+                            <div class="name">Jeffrey Washington</div>
+                            <div class="date">12:24AM, 12-May 2020</div>
+                        </div>
+                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                        </div>
+                    </div>
+                    <div class="update-text">
+                        At vero eos censes tantas res gessisse sine causa? quae fuerit causa, nollem. Omne
+                        animal, simul atque natum sit, amet, consectetur, adipisci velit, sed quia voluptas. Sed
+                        ut dolore suo sanciret militaris imperii disciplinam exercitumque in gravissimo bello
+                        animadversionis. Laudem et via procedat oratio quaerimus igitur, quid iudicat, quo enim
+                        maxime consuevit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    <div class="hidden-field">
+        <input type="text" class="go-to-update-campaign-url"
+               value="{% url 'dashboard:new_campaign' campaign.id 'update' %}" hidden>
+        <input type="text" class="go-to-publish-url" value="{% url 'dashboard:publish_new_campaign' campaign.id %}"
+               hidden>
+        <input type="text" class="large-media-src"
+               value="{% if campaign.large_media %}{{ campaign.large_media.url }}{% endif %}" hidden>
+        <input type="text" class="large-media-url" value="{{ campaign.large_media_url }}" hidden>
+        <input type="text" class="large-image-src" value="{{ campaign.large_image }}" hidden>
+        <input type="text" class="large-media-type" value="" hidden>
+        <input type="text" class="small-medias-number" value="{{ small_medias|length }}" hidden>
+        {% for small_media in small_medias %}
+            <input type="text" class="small-media-src"
+                   value="{% if small_media.file %}{{ small_media.file.url }}{% endif %}" hidden>
+            <input type="text" class="small-image-src"
+                   value="{% if small_media.image %}{{ small_media.image }}{% endif %}" hidden>
+            <input type="text" class="small-media-url" value="{{ small_media.media_url }}" hidden>
+        {% endfor %}
+    </div>
+</div>

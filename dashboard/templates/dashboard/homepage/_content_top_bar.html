@@ -1,0 +1,45 @@
+{% load static %}
+<div id="content-top-bar" class="border-bottom border-right container-fluid">
+    <div class="on-pc">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row w-50">
+                <div class="group-item item w-100 active" data-tab-link="explore">Explore</div>
+                <div class="group-item item w-100" data-tab-link="current-and-previous"> My Campaigns</div>
+            </div>
+            <div class="pr-4 d-flex justify-content-center align-items-center ml-5" onclick="goToCreateNewCampaign()">
+                <div class="new-campaign new-campaign-pc btn-cus btn-cus-secondary">Start A New Campaign</div>
+                <div class="new-campaign new-campaign-mobile btn-cus btn-cus-secondary" style="width: 45px!important;">
+                    +
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="on-mobile">
+        <div class="d-flex justify-content-between h-100">
+            <div class="tab-item-group">
+                <div class="selected-item"><span>Explore</span></div>
+                <div class="drop-down d-none">
+                    <div class="drop-down-item active" data-tab-link="explore">Explore</div>
+                    <div class="drop-down-item" data-tab-link="current-and-previous">
+                        Campaigns You Support
+                    </div>
+                </div>
+                <div class="drop-down-icon"><img class="img"
+                                                 src="{% static 'dashboard/assets/img/down-arrow-png.png' %}"
+                                                 alt="drop-down"></div>
+                <div class="drop-down-icon d-none"><img class="img"
+                                                        src="{% static 'dashboard/assets/img/up-arrow-png.png' %}"
+                                                        alt="drop-down"></div>
+            </div>
+            <div class="d-flex align-items-center" onclick="goToCreateNewCampaign()">
+                <div class="new-campaign new-campaign-mobile btn-cus btn-cus-secondary"
+                     style="width: 45px!important; height: 45px!important;">
+                    +
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class="go-to-create-new-campaign" value="{% url 'dashboard:create_new_campaign' %}" hidden>
+    </div>
+</div>

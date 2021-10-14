@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'landing/assets/css/landing.css' %}"/>
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/dashboard-slider.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <!-- magic scroll  css !-->
+{% endblock %}
+{% block content %}
+    <div class="home-page home-page-public">
+        {% include 'dashboard/homepage/_explore.html' %}
+        <div class="container text-center mt-5">
+            <div class="left w-100">
+                <div class="title">
+                    <span>Are you ready</span> to take flight?
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="w-75 mt-4 input-div">
+                        <div class="input-with-label get-started-with-email">
+                            <input type="text" placeholder="Enter your email">
+                            <div class="input-btn">Get started</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="bottom d-flex justify-content-center w-50 mt-3 text-div">
+                        <p class="text-center">Easy-to-use
+                            <span class="dot">Free to get started</span>
+                            <span class="dot">Cancel anytime</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class='sign-up-url' value="{% url 'sign_up' %}" hidden>
+    </div>
+{% endblock %}
+{% block extra_script %}
+
+    <script src="{% static 'landing/assets/js/index.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/common.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/home-page.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/dashboard-slider.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-video@latest/dist/js/splide-extension-video.min.js"></script>
+    <script src="{% static 'dashboard/assets/js/slider-preview.js' %}"></script>
+{% endblock %}

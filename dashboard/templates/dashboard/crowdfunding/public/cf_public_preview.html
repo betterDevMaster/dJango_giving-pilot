@@ -1,0 +1,100 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+{% block title %}
+
+
+{% endblock %}
+
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/crowdfunding.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/campaign-preview.css' %}">
+{% endblock %}
+{% block cover %}
+    <div id="preview-bar" class="d-flex align-items-center border-bottom">
+        <div class="d-none d-md-block w-100 text-center"><span class="preview-text">You are in Preview Mode</span></div>
+        <div class="d-md-none d-lg-none d-xl-none w-100 pl-2 text-cus-secondary"><span
+                class="preview-text">Preview Mode</span></div>
+        <div class="btn-group">
+            <button class="btn-cus btn-cus-primary border-0" onclick="onGoToCampaignUpdate()">Back</button>
+            <button class="btn-cus btn-cus-secondary border-0 ml-4" onclick="onGoToPublishCampaign()">Publish</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% include 'dashboard/crowdfunding/public/_cf_public_content.html' %}
+{% endblock %}
+{% block right-bar %}
+    {% include 'dashboard/crowdfunding/public/_right_bar_on_pc.html' %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block extra_script %}
+    <script src="{% static 'dashboard/assets/js/crowdfunding/cf_public.js' %}"></script>
+    <script>
+        function onGoToCampaignUpdate() {
+            const backToUpdateURL = $('.go-to-update-campaign-url').val() + "?tab=tab-other-options"
+            window.open(backToUpdateURL, name = '_self');
+        }
+
+        function onGoToPublishCampaign() {
+            const goToPublishURL = $('.go-to-publish-url').val();
+            window.open(goToPublishURL, name = '_self');
+        }
+
+        function onSearchMembers() {
+            // Declare variables
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search-member");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("member-group");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function onSearchContributors() {
+            // Declare variables
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search-contributor");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("contributor-group");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $(".table-wrapper").slimScroll({
+                size: '8px',
+                width: '100%',
+                height: '100%',
+                color: 'lightgray',
+                allowPageScroll: true,
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% load static %}
+<div id="nc-about-you" class="about-you campaign-content tab-body d-none" data-navlink="item-you">
+    <div class="title mt-4">About You</div>
+    <div class="text-cus-secondary">Tell us about yourself and add members to help manage your campaign</div>
+    <div class="content form-group">
+        <div class="item name">
+            <label for="name" class="w-100">
+                <div class="d-flex justify-content-between">
+                    <div class="text-cus-dark d-flex align-items-center "><b>Your Name</b></div>
+                </div>
+            </label>
+            <div class="alert alert-danger d-none your-name-required">Your name is required.</div>
+            <input type="text" class="your-name form-control" placeholder="Adam Voigt" value="{{ campaign.full_name }}">
+        </div>
+        <div class="item email">
+            <label for="email" class="w-100">
+                <div class="d-flex justify-content-between">
+                    <div class="text-cus-dark d-flex align-items-center "><b>Email Address</b></div>
+                    <div class="d-flex align-items-center">
+                        <div class="toggle-keep-private-email custom-control custom-switch">
+                            <input type="checkbox"
+                                   class="custom-control-input {% if campaign.is_email_private %}checked{% endif %}"
+                                   id="toggle-keep-private-email" {% if campaign.is_email_private %}checked{% endif %}>
+                            <label class="custom-control-label text-cus-dark" for="toggle-keep-private-email">
+                                Keep Private
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </label>
+            <div class="alert alert-danger d-none your-email-required">Your email is required.</div>
+            <input type="text" class="your-email form-control" placeholder="example@email.com"
+                   value="{{ campaign.second_email }}">
+        </div>
+        <div class="item phone">
+            <label for="phone" class="w-100">
+                <div class="d-flex justify-content-between">
+                    <div class="text-cus-dark d-flex align-items-center "><b>Phone</b></div>
+                    <div class="d-flex align-items-center">
+                        <div class="toggle-keep-private-phone custom-control custom-switch">
+                            <input type="checkbox"
+                                   class="custom-control-input {% if campaign.is_mobile_private %}checked{% endif %}"
+                                   id="toggle-keep-private-phone"
+                                   {% if campaign.is_mobile_private %}checked{% endif %}>
+                            <label class="custom-control-label text-cus-dark" for="toggle-keep-private-phone">
+                                Keep Private
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </label>
+            <div class="alert alert-danger d-none your-phone-required">Your phone number is required.</div>
+            <input type="text" class="your-phone form-control" placeholder="+1 123456789" value="{{ campaign.mobile }}">
+        </div>
+        <div class="item">
+            <label for="title" class="w-100">
+                <div class="d-flex justify-content-between">
+                    <div class="text-cus-dark d-flex align-items-center "><b>Title</b></div>
+                    <div class="d-flex align-items-center">
+                        <div class="toggle-keep-private-title custom-control custom-switch">
+                            <input type="checkbox"
+                                   class="custom-control-input {% if campaign.is_your_title_private %}checked{% endif %}"
+                                   id="toggle-keep-private-title"
+                                   {% if campaign.is_your_title_private %}checked{% endif %}>
+                            <label class="custom-control-label text-cus-dark" for="toggle-keep-private-title">
+                                Keep Private
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </label>
+            <div class="alert alert-danger d-none your-title-required">Your email is required.</div>
+            <input type="text" class="your-title form-control" placeholder="Ex. Product manager"
+                   value="{{ campaign.your_title }}">
+        </div>
+        {#        <div class="item show-contact-btn">#}
+        {#            <div class="toggle-show-contact custom-control custom-switch">#}
+        {#                <input type="checkbox" class="custom-control-input" id="toggle-show-contact"#}
+        {#                       checked>#}
+        {#                <label class="custom-control-label text-cus-dark" for="toggle-show-contact">#}
+        {#                    Keep Private#}
+        {#                </label>#}
+        {#            </div>#}
+        {#            <div class="mt-2" style="padding-left: 37px">#}
+        {#                <div class="with-info"><p class="text-cus-secondary">#}
+        {#                    If you enable this, users will be able to send message directly to the campaign manager's#}
+        {#                    email.</p>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        <div class="bottom mt-5">
+            <div class="back btn-cus btn-cus-primary mr-3" onclick="onAboutYouBack()">Back</div>
+            <div class="next btn-cus btn-cus-secondary" onclick="onAboutYouNext()">Next</div>
+        </div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class="save-url" value="{% url 'dashboard:new_campaign_process' 'about_you' %}" hidden>
+    </div>
+</div>

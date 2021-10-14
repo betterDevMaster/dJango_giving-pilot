@@ -1,0 +1,28 @@
+{% load static %}
+<div class="sidebar d-flex flex-column position-fixed border-right h-100">
+    <div class="title mt-4">
+        <p>{% if is_update_url %}Update Campaign{% else %}Create a New Campaign{% endif %}</p>
+    </div>
+    <div class="process-items">
+        <div class="tab-item btn-cus tab-terms-and-conditions item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}"
+             data-link="nc-terms-and-conditions" data-info="Terms and Conditions">
+            <span></span>Terms and Conditions
+        </div>
+        <div class="tab-item btn-cus tab-basic-info item item-basic {% if is_update_url %}checked{% else %}unchecked{% endif %}"
+             data-link="nc-basic-info" data-info="Basic Information">
+            <span></span>Basic Information
+        </div>
+        <div class="tab-item btn-cus tab-about-campaign item item-campaign {% if is_update_url %}checked{% else %}unchecked{% endif %}"
+             data-link="nc-about-campaign" data-info="About the Campaign">
+            <span></span>About the Campaign
+        </div>
+        <div class="tab-item btn-cus tab-about-you item item-you {% if is_update_url %}checked{% else %}unchecked{% endif %}"
+             data-link="nc-about-you" data-info="About You">
+            <span></span>About You
+        </div>
+        <div class="tab-item btn-cus tab-other-options item item-other {% if is_update_url %}checked{% else %}unchecked{% endif %}"
+             data-link="nc-other-options" data-info="Other Options">
+            <span></span>Other Options
+        </div>
+    </div>
+</div>

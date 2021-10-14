@@ -1,0 +1,180 @@
+{% load static %}
+<div id="top-bar" class="border-bottom">
+    <div class="hamburger">
+        <div class="d-flex d-none flex-column hamburger-icon-open">
+            <div class="line"></div>
+            <div class="line mt-auto"></div>
+            <div class="line mt-auto"></div>
+        </div>
+        <div class="flex-column d-none hamburger-icon-close">
+            <span class="line1"></span>
+            <span class="line2"></span>
+        </div>
+        <div class="drop-menu d-none position-absolute w-100">
+            {% if not user.is_authenticated %}
+                <a href="{% url 'dashboard:home_page' %}">
+                    <div class="text-cus-primary">Get Started</div>
+                </a>
+                <a href="{% url 'login' %}">
+                    <div class="text-cus-primary mt-5">Login</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">How it works</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Why US</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Platform</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Contact US</div>
+                </a>
+            {% else %}
+                <a href="{% url 'index' %}">
+                    <div class="text-cus-primary">home</div>
+                </a>
+                <a href="{% url 'dashboard:home_page' %}">
+                    <div class="text-cus-primary mt-5">Dashboard</div>
+                </a>
+                <a href="{% url 'dashboard:create_new_campaign' %}">
+                    <div class="text-cus-primary mt-5">+ new campaign</div>
+                </a>
+                <a href="{% url 'dashboard:home_page' %}">
+                    <div class="text-cus-primary mt-5">Explore</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Notification</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">My Account</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Logout</div>
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="logo">
+        <a href="{% if user.is_authenticated %}{% url 'dashboard:home_page' %}{% else %}/{% endif %}">{% include '_logo.html' %}</a>
+    </div>
+    <div class="search-pc">
+        <input type="text" id="pc-search-bar" class="top-search-bar search-bar" placeholder="Search Giving Pilot"
+               onkeyup="onSearchGivingPilot('pc-search-bar', false)">
+        <div class="search-icon"><i class="fas fa-search"></i></div>
+        <div class="search-close d-none"><i class="fas fa-times"></i></div>
+        <div class="gp-search-table-wrapper d-none">
+            <table id="gp-search-result" class="gp-search-result w-100">
+                {% include 'dashboard/__search_table.html' %}
+            </table>
+            <div class="nothing-found d-none">
+                Nothing Found
+            </div>
+        </div>
+    </div>
+    <div class="search-mobile">
+        <input type="text" id="mobile-search-bar" class="top-search-bar search-bar" placeholder="Search Giving Pilot"
+               onkeyup="onSearchGivingPilot('mobile-search-bar', true)">
+        <div id="mobile-search-close-icon" class="search-close-icon d-none">
+            <img src="{% static 'dashboard/assets/img/close-png.png' %}" class="img" alt="close">
+        </div>
+        <div id="mobile-search-icon" class="search-icon"><i class="fas fa-search"></i></div>
+        <div class="gp-search-table-wrapper d-none">
+            <table id="gp-search-result-mobile" class="gp-search-result w-100">
+                {% include 'dashboard/__search_table.html' %}
+            </table>
+            <div class="nothing-found d-none">
+                Nothing Found
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function onCampaignSearch(campaignId) {
+        window.open('/dashboard/crowdfunding/public/'+ campaignId, name='_self');
+    }
+
+    function onSearchGivingPilot(inputId, onMobile) {
+        // Declare variables
+        let input, filter, table, nothing, tr, td, i, txtValue;
+        input = document.getElementById(inputId);
+        filter = input.value.toUpperCase();
+        if (onMobile) {
+            table = document.getElementById("gp-search-result-mobile");
+        } else {
+            table = document.getElementById("gp-search-result");
+        }
+        tr = table.getElementsByTagName("tr");
+        nothing = $('.nothing-found');
+        nothing.addClass('d-none');
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        if (table.offsetHeight === 0) {
+            nothing.removeClass('d-none');
+        }
+    }
+
+    $(document).ready(function () {
+        const searchBar = $('.top-search-bar');
+        const tableWrapper = $('.gp-search-table-wrapper');
+        const mobileSearchIcon = $('#mobile-search-icon');
+        const mobileSearchCloseIcon = $('#mobile-search-close-icon');
+        const mobileSearchBar = $('#mobile-search-bar');
+        const $searchBarClose = $('.search-close');
+        searchBar.on('focusin onkeyup', function () {
+            tableWrapper.removeClass('d-none');
+            $searchBarClose.removeClass('d-none');
+        });
+
+        $searchBarClose.click(function () {
+            $(this).addClass('d-none');
+            tableWrapper.addClass('d-none');
+            searchBar.val('');
+        })
+
+        mobileSearchIcon.click(function () {
+            $(this).addClass('d-none');
+            mobileSearchCloseIcon.removeClass('d-none');
+            tableWrapper.addClass('on-mobile-gp-search-table-wrapper');
+            mobileSearchBar.animate({
+                width: '100%',
+                paddingLeft: '10'
+            });
+            mobileSearchBar.focus();
+        });
+        mobileSearchCloseIcon.click(function () {
+            $(this).addClass('d-none');
+            tableWrapper.addClass('d-none');
+            mobileSearchIcon.removeClass('d-none');
+            mobileSearchBar.animate({
+                width: '0',
+                paddingLeft: '0'
+            });
+        });
+
+        $('.hamburger-icon-open').on('touchstart', function () {
+            $(this).removeClass('d-flex');
+            $('.hamburger-icon-close').addClass('d-flex');
+            $('.drop-menu').toggleClass('d-none');
+        });
+
+        $('.hamburger-icon-close').on('touchstart', function () {
+            $(this).removeClass('d-flex');
+            $('.hamburger-icon-open').addClass('d-flex');
+            $('.drop-menu').toggleClass('d-none');
+        });
+    })
+
+
+</script>

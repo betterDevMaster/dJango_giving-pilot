@@ -1,0 +1,242 @@
+$first-color: #08bdf6;
+$second-color: #e5f6fd;
+$third-color: #6b7c94;
+$fourth-color: #223b60;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+/**
+ * Right sidebar
+ * -------------------------------------------------- */
+.frame-right-bar {
+  //position: static;
+}
+
+.crowdfunding-page {
+  .preview-slider {
+    margin: 0 10%;
+  }
+}
+
+
+/**
+ * Header
+ */
+.preview-slider__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 70px 50px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  user-select: none;
+  pointer-events: none;
+}
+
+.preview-slider__title {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  max-width: 700px;
+
+  @media screen and (max-width: $large) {
+    font-size: 35px;
+  }
+  @media screen and (max-width: $small) {
+    font-size: 35px;
+    margin-top: -20px;
+  }
+}
+
+
+/**
+ * Share Menu
+ */
+
+.preview-nav {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  right: 0;
+  z-index: 200;
+  padding: 20px 20px;
+}
+
+.preview-nav__title {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.88;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  margin: 0 15px 0 0;
+  padding: 0;
+}
+
+.preview-nav__list {
+  display: flex;
+  align-items: center;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 18px;
+
+}
+
+.preview-nav__item {
+  margin: 0 12px;
+  padding: 0;
+}
+
+.preview-nav__link {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+/**
+ * Slider
+ * -------------------------------------------------- */
+
+.preview-slider {
+  max-width: 930px;
+  position: relative;
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.preview-slider__primary {
+  .splide--fade > .splide__track > .splide__list > .splide__slide.is-active {
+  }
+}
+
+.splide__slide img {
+  width: 100%;
+  height: auto;
+}
+
+.preview-slider__secondary {
+  margin-top: 20px;
+
+  .splide--nav > .splide__track > .splide__list > .splide__slide {
+    border: 0;
+  }
+
+  .splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+    border: 0;
+
+    .preview-slider__card {
+      border: 3px solid #00AEEF;
+    }
+  }
+
+  .preview-slider__card {
+    position: relative;
+    border: 3px solid transparent;
+    transition: all .3s;
+    user-select: none;
+
+    &:hover {
+      border: 3px solid #00AEEF;
+    }
+
+    &--video {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 36px;
+        height: 43px;
+
+        background: url('../img/icon-play.svg') no-repeat;
+      }
+    }
+  }
+}
+
+.splide__video {
+  width: 100% !important;
+  height: 100% !important;
+
+  div {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: black;
+  }
+
+  iframe, video {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.splide__video__play {
+  background: rgba(0, 0, 0, .5);
+  width: 100px;
+  height: 100px;
+  transition: all .3s;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 36px;
+    height: 43px;
+
+    background: url('../img/icon-play.svg') no-repeat;
+
+    border: 0;
+  }
+}
+
+.splide__arrow {
+  background: rgba(0, 0, 0, .4);
+  width: 40px;
+  height: 40px;
+
+  svg {
+    fill: #fff;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+//@media only screen and (max-width: 991px) {
+//  .preview-slider__header {
+//    position: static;
+//    background: none;
+//    padding: 30px 0 0;
+//  }
+//
+//  .preview-nav {
+//    position: static;
+//    padding: 0 0 30px;
+//  }
+//
+//  .preview-slider__title {
+//    color: #223B60;
+//    font-size: 35px;
+//    max-width: none;
+//  }
+//
+//  .preview-nav__title {
+//    color: #223B60;
+//  }
+//}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}
+        Giving Pilot
+    {% endblock %}</title>
+    <!-- Lato Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/vendor/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/custom.css' %}">
+    <!-- AOS css
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    !-->
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Animation View css !-->
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/vendor/animate.min.css' %}"/>
+
+    <script src="{% static 'accounts/assets/js/vendor/jquery-3.5.1.min.js' %}"></script>
+
+    <!-- Animation View js !-->
+    <script src="{% static 'accounts/assets/js/vendor/jquery.aniview.js' %}"></script>
+
+    <!-- Splide css & js !-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+    {% block extra_style %}
+    {% endblock %}
+</head>
+<body>
+{% include '_navbar.html' %}
+{% block content %}
+
+{% endblock %}
+{% include '_footer.html' %}
+
+<!--  datatable js !-->
+<script src="{% static 'accounts/assets/js/vendor/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/common.js' %}"></script>
+
+<!-- boostrap library !-->
+<script src="{% static 'accounts/assets/js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'accounts/assets/js/vendor/bootstrap.min.js' %}"></script>
+
+
+<script>
+    $(document).ready(function () {
+        let animationOptions = {
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(animationOptions);
+    });
+</script>
+<!--
+<script src="{% static 'accounts/assets/js/vendor/aos.js' %}"></script>
+<script>
+    AOS.init();
+</script>
+!-->
+{% block extra_script %}
+
+{% endblock %}
+</body>
+</html>

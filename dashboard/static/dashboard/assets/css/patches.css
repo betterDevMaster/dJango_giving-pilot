@@ -1,0 +1,124 @@
+/**
+ * Buttons
+ * -------------------------------------------------- */
+.btn-cus {
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/**
+ * Header
+ * -------------------------------------------------- */
+
+#top-bar {
+  height: 80px;
+}
+
+#top-bar .hamburger {
+  height: 80px !important;
+}
+
+#top-bar .logo {
+  height: 80px;
+  padding: 0 30px;
+}
+
+#top-bar .search-pc .top-search-bar {
+  height: 80px;
+}
+
+#top-bar .logo svg {
+  width: 150px;
+  height: auto;
+}
+
+#top-bar .hamburger .hamburger-icon-open .line {
+  height: 2px;
+}
+
+#top-bar .hamburger .hamburger-icon-open {
+  width: 24px;
+  height: 14px;
+}
+
+#top-bar .search-pc .search-icon {
+  width: 31px;
+  height: 31px;
+  font-size: 19px;
+  line-height: 19px;
+  left: 25px;
+  top: 24px;
+}
+
+#top-bar .search-pc .search-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+#top-bar .search-pc .top-search-bar {
+  color: #6b7c94;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: Lato;
+
+  padding-left: 70px;
+  border: 1px solid #e5f6fd;
+}
+
+.top-search-bar::placeholder {
+  opacity: 1;
+}
+
+
+
+/**
+ * Sidebar
+ * -------------------------------------------------- */
+[data-tab-link="homepage"] img {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+/**
+ * Steps section
+ * -------------------------------------------------- */
+.steps-section {
+  padding: 80px 0;
+}
+
+.campaign-sidebar .title {
+  color: #0a1f44;
+  font-family: Lato;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.73;
+  letter-spacing: 0.54px;
+  text-align-last: left;
+
+  padding-left: 43px;
+  padding-top: 32px;
+}
+
+.campaign-sidebar .process-items .item {
+  padding: 4px 0 4px 43px;
+}
+
+.campaign-sidebar .process-items .item:hover {
+  box-shadow: none;
+}
+
+.campaign-content {
+  max-width: 650px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.campaign-content .title {
+  padding-top: 32px;
+}

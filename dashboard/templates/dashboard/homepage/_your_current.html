@@ -1,0 +1,135 @@
+{% load static %}
+<div class="current-and-previous campaigns-view">
+    <div id="current-campaigns" class="campaign-view your-current">
+        <div class="campaign-view-header">
+            <div class="title mr-5">
+                <span>Your Current</span> <br> Campaigns
+            </div>
+            <div class="sub-text ml-5"> Certe, inquam, pertinax non possim accommodare torquatos nostros? quos tu
+                paulo ante cum.
+            </div>
+        </div>
+        <div class="campaign-view-content">
+            <div class="row pl-5 pr-5">
+                {% for campaign in my_campaigns %}
+                    {% if not campaign.is_closed %}
+                        <div class="col-lg-6 mb-4 pr-3 pl-3">
+                            <div class="current-campaign-card">
+                                <div class="cover-image">
+                                    <div>
+                                        <img src="{{ campaign.large_media_cover }}" alt="current-campaign-cover">
+                                        <div class="campaign-type">Crowdfunding</div>
+                                        <div class="ownership">Manager</div>
+                                    </div>
+                                </div>
+                                <div class="pl-4 pr-4">
+                                    <h2 class="title">{{ campaign.title }}</h2>
+                                    <div class="company-info">
+                                        <div class="photo"></div>
+                                        <div class="name">{{ campaign.organization_name }}</div>
+                                    </div>
+                                    <div class="description">
+                                        {{ campaign.organization_description }}
+                                        This library allows you to easily compose images together without messing around
+                                        with canvas. Canvas can be kind of a pain to work with sometimes, especially if
+                                        you just need a canvas context to do something relatively simple like merge some
+                                        images together. merge-images abstracts away all the repetitive tasks into one
+                                        simple function cal
+                                    </div>
+                                    <div class="current-state row pl-lg-0 pr-lg-0 pr-xl-4 pl-xl-4">
+                                        <div class="col-sm-4 d-flex flex-row">
+                                            <div class="icon p-1">
+                                                <img src="{% static 'dashboard/assets/img/pointer-png.svg' %}">
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="type-text">Goal</div>
+                                                <div class="type-info text-cus-primary">$2,000</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row">
+                                            <div class="icon p-1">
+                                                <img src="{% static 'dashboard/assets/img/chart-line-png.svg' %}">
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="type-text">Raised</div>
+                                                <div class="type-info raised-text">$1,500</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row">
+                                            <div class="icon p-1">
+                                                <img src="{% static 'dashboard/assets/img/hands-helping-png.svg' %}">
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="type-text">Total Contributors</div>
+                                                <div class="type-info total-text">134</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="raised-info">
+                                        <strong>${{ campaign.raised_fund }}</strong> of ${{ campaign.goal_amount}} raised <span class="before-dot">ENDS IN 2 days</span>
+                                    </div>
+                                </div>
+                                <!-- Progress Bar -->
+                                <div class="progress-block">
+                                    <div class="progress-block__val" style="width: {{ campaign.raised_percentage }}%!important;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="previous-campaigns" class="campaign-view your-previous">
+        <div class="campaign-view-header">
+            <div class="title mr-5">
+                <span>Previous</span> Campaigns
+            </div>
+            <div class="sub-text ml-5"> Certe, inquam, pertinax non possim accommodare torquatos nostros? quos tu
+                paulo ante cum.
+            </div>
+        </div>
+        <div class="campaign-view-content">
+            <div class="row pr-5 pl-5">
+                {% for campaign in my_campaigns %}
+                    {% if not campaign.is_closed %}
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 pr-2 pl-2">
+                            <div class="current-campaign-card">
+                                <div class="cover-image">
+                                    <div>
+                                        <img src="{{ campaign.large_media_cover_small }}" alt="current-campaign-cover">
+                                        <div class="campaign-type">Crowdfunding</div>
+                                        <div class="ownership">Manager</div>
+                                    </div>
+                                </div>
+                                <div class="pl-4 pr-4">
+                                    <h2 class="title">{{ campaign.title }}</h2>
+                                    <div class="company-info">
+                                        <div class="photo"></div>
+                                        <div class="name">{{ campaign.organization_name }}</div>
+                                    </div>
+                                    <div class="description">
+                                        {{ campaign.organization_description }}
+                                        This library allows you to easily compose images together without messing around
+                                        with canvas. Canvas can be kind of a pain to work with sometimes, especially if
+                                        you just need a canvas context to do something relatively simple like merge some
+                                        images together. merge-images abstracts away all the repetitive tasks into one
+                                        simple function cal
+                                    </div>
+                                    <div class="raised-info">
+                                        <div class="before-dot" style="margin-left: -25px">ENDS IN 2 days</div>
+                                        <strong>${{ campaign.raised_fund }}</strong> of ${{ campaign.goal_amount}} raised
+                                    </div>
+                                </div>
+                                <!-- Progress Bar -->
+                                <div class="progress-block">
+                                    <div class="progress-block__val" style="width: {{ campaign.raised_percentage }}%!important;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

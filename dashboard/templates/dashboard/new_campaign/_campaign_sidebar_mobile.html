@@ -1,0 +1,22 @@
+{% load static %}
+<div class="sidebar position-fixed border-bottom w-100">
+    <div class="title">
+        {% if is_update_url %}Update Campaign{% else %}Create a New Campaign{% endif %}
+    </div>
+    <div class="horizontal-items">
+        <div class="d-flex justify-content-between">
+            <div class="tab-item tab-terms-and-conditions item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}" data-link="nc-terms-and-conditions"><span></span></div>
+            <div class="tab-item tab-basic-info item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}" data-link="nc-basic-info"><span></span></div>
+            <div class="tab-item tab-about-campaign item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}" data-link="nc-about-campaign"><span></span></div>
+            <div class="tab-item tab-about-you item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}" data-link="nc-about-you"><span></span></div>
+            <div class="tab-item tab-other-options item item-terms {% if is_update_url %}checked{% else %}unchecked{% endif %}" data-link="nc-other-options"><span></span></div>
+        </div>
+    </div>
+    <div class="process-items">
+        <div id="nc-terms-and-conditions-text" class="tab-item-text item">Terms and Conditions</div>
+        <div id="nc-basic-info-text" class="tab-item-text item d-none">Basic Information</div>
+        <div id="nc-about-campaign-text" class="tab-item-text item d-none">About the Campaign</div>
+        <div id="nc-about-you-text" class="tab-item-text item d-none">About You</div>
+        <div id="nc-other-options-text" class="tab-item-text item d-none">Other Options</div>
+    </div>
+</div>

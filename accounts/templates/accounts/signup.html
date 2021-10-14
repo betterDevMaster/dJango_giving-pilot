@@ -1,0 +1,116 @@
+{% extends 'base.html' %}22
+{% load static %}=
+{% block title %}
+
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="signup" class="signup row w-100 m-0">
+        <div class="col-lg-7 col-xl-8 d-lg-none d-xl-none p-0 top">
+            <div class="title aniview speed1" data-av-animation="bounceInUp">
+                Sign in to Take <br> Flight for a <span>Cause</span>
+            </div>
+            <img src="{% static 'accounts/assets/img/signup-bg.png' %}"
+                 class="float-right top-img" alt="right-img">
+        </div>
+        <div class="col-lg-5 col-xl-4 left">
+            <div class="title d-none d-lg-block p-0 aniview speed1" data-av-animation="bounceInLeft">
+                Sign up to Take <br> Flight for a <span>Cause</span>
+            </div>
+            <div class="signup-form">
+                <div class="social-text mt-4 aniview speed2" data-av-animation="bounceInLeft">
+                    Signup with social account
+                </div>
+                <div class="w-100 d-flex justify-content-center mt-4 mb-4">
+                    <div class="social-icons d-flex justify-content-between">
+                        <a class="aniview speed4" href="#" data-av-animation="bounceInLeft">
+                            <div class="facebook"><i class="fab fa-facebook-f social-icon"></i></div>
+                        </a>
+                        <a class="aniview speed3" href="#" data-av-animation="bounceInLeft">
+                            <div class="twitter"><i class="fab fa-twitter social-icon"></i></div>
+                        </a>
+                        <a class="aniview speed2" href="#" data-av-animation="bounceInLeft">
+                            <div class="linkedin"><i class="fab fa-linkedin-in social-icon"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="or position-relative aniview speed2" data-av-animation="bounceInLeft">
+                    <hr>
+                    <div>OR</div>
+                </div>
+                <div class="signup-text aniview speed3" data-av-animation="bounceInLeft">
+                    Signup with email
+                </div>
+                {% if message.content %}
+                    <div class="alert alert-{{ message.type }}">
+                        {{ message.content }}
+                    </div>
+                {% endif %}
+                <form id="create-user-form" method="POST" class="aniview speed4" method="POST"
+                      data-av-animation="fadeIn">
+                    {% csrf_token %}
+                    <div class="main-form form-group">
+                        <div class="input-fullname mt-4" data-aos="flip-up" data-aos-delay="600">
+                            <label for="fullname" class="text-cus-dark">Your Full Name</label>
+                            <input type="text" id="fullname" class="form-control" name="fullname"
+                                   placeholder="Your Full Name" required>
+                        </div>
+                        <div class="input-email mt-4" data-aos="flip-up" data-aos-delay="700">
+                            <label for="email" class="text-cus-dark">Email Address</label>
+                            <input type="email" id="email" class="form-control" name="email" value="{{ email }}"
+                                   placeholder="Email Address" required>
+                        </div>
+                        <div class="input-password1 mt-4" data-aos="flip-up" data-aos-delay="800">
+                            <label for="password1">Password</label>
+                            <div class="password-view">
+                                <input type="password" id="password1" class="form-control" name="password1"
+                                       placeholder="Password" required>
+                                <i class="eye-icon1 eye-icon fas fa-eye text-cus-secondary"
+                                   onclick="onToggleView('1')"></i>
+                            </div>
+                        </div>
+                        <div class="input-password2 mt-4" data-aos="flip-up" data-aos-delay="900">
+                            <label for="password2">Confirm Password</label>
+                            <div class="password-view">
+                                <input type="password" id="password2" class="form-control" name="password2"
+                                       placeholder="Confirm Password" required>
+                                <i class="eye-icon2 eye-icon fas fa-eye text-cus-secondary"
+                                   onclick="onToggleView('2')"></i>
+                            </div>
+                        </div>
+                        <button class="mt-4 btn-signup border-0 btn-cus-secondary w-100" type="submit"
+                                data-aos="zoom-in-up" data-aos-delay="1000">
+                            Create
+                        </button>
+                        <div class="goto-login mt-4 d-flex flex-row" data-aos="flip-up" data-aos-delay="1100">
+                            <p class="text-cus-dark m-0">Already have an account?
+                            </p><a href="{% url 'login' %}" class="ml-3" style="width: 50px"><span
+                                class="text-cus-primary ml-1"><b>Login</b></span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-7 col-xl-8 d-none d-lg-block p-0" style="z-index: -100" data-aos="zoom-in-down">
+            <img src="{% static 'accounts/assets/img/signup-bg.png' %}"
+                 class="float-right mt-5 right-img aniview speed4" alt="right-img" data-av-animation="fadeIn">
+        </div>
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script>
+        function onToggleView(id) {
+            const password = $('#password' + id);
+            if (password.attr('type') === 'password') {
+                password.attr('type', 'text');
+                $('.eye-icon' + id).removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                password.attr('type', 'password');
+                $('.eye-icon' + id).removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        }
+    </script>
+{% endblock %}

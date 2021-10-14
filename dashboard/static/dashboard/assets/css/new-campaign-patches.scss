@@ -1,0 +1,150 @@
+/**
+ * Buttons
+ * -------------------------------------------------- */
+.btn-cus {
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/**
+ * Header
+ * -------------------------------------------------- */
+
+$topbar_height: 80px;
+
+
+#top-bar {
+  height: $topbar_height;
+
+  .hamburger {
+    height: $topbar_height !important;
+
+    .hamburger-icon-open .line {
+      height: 2px;
+    }
+
+    .hamburger-icon-open {
+      width: 24px;
+      height: 14px;
+    }
+  }
+
+  .logo {
+    height: $topbar_height;
+    padding: 0 30px;
+
+    svg {
+      width: 150px;
+      height: auto;
+    }
+  }
+
+  .search-pc {
+    .top-search-bar {
+      height: $topbar_height;
+    }
+
+
+    .search-icon {
+      width: 31px;
+      height: 31px;
+      font-size: 19px;
+      line-height: 19px;
+      left: 25px;
+      top: 24px;
+    }
+
+    .search-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .top-search-bar {
+      color: #6b7c94;
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-family: Lato, sans-serif;
+
+      padding-left: 70px;
+      border: 1px solid #e5f6fd;
+
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+}
+
+
+/**
+ * Sidebar
+ * -------------------------------------------------- */
+.campaign-sidebar {
+  min-width: 500px;
+
+  .sidebar {
+    width: auto;
+  }
+
+  .title {
+    color: #0a1f44;
+    font-family: Lato, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.73;
+    letter-spacing: 0.54px;
+    text-align-last: left;
+
+    padding: 32px 43px 15px;
+  }
+
+  .process-items {
+    .item {
+      padding: 4px 0 0 43px;
+
+      &:hover {
+        color: #00aeef !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .unchecked {
+      span {
+        display: inline-block;
+        width: 28px;
+        position: relative;
+
+        &::before {
+          font-size: 13px;
+          position: absolute;
+          margin-right: auto;
+          left: 0;
+          top: -1px;
+        }
+      }
+    }
+  }
+
+}
+
+
+/**
+ * Steps section
+ * -------------------------------------------------- */
+.steps-section {
+  padding: 80px 0;
+}
+
+.campaign-content {
+  max-width: 650px;
+  padding: 0;
+}
+
+.campaign-content .title {
+  padding-top: 32px;
+}

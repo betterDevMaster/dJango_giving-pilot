@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="loading-gif position-fixed d-none w-100 h-100" style="z-index: 9999; margin-top: -150px">
+        <div class="d-flex justify-content-center align-items-center w-100 h-100">
+            <img src="{% static 'dashboard/assets/loading.gif' %}" alt="loading"/>
+        </div>
+    </div>
+    <div id="login" class="login row w-100 m-0">
+        <div class="col-lg-7 col-xl-8 d-lg-none d-xl-none p-0 top">
+            <div class="title aniview speed1" data-av-animation="bounceInUp">
+                Sign in to Take <br> Flight for a <span>Cause</span>
+            </div>
+            <img src="{% static 'accounts/assets/img/login-bg.png' %}"
+                 class="float-right top-img">
+        </div>
+        <div class="col-lg-5 col-xl-4 left">
+            <div class="title d-none d-lg-block p-0 aniview speed1" data-av-animation="bounceInLeft">
+                Sign in to Take <br> Flight for a <span>Cause</span>
+            </div>
+            <div class="login-form">
+                <div class="social-text mt-4 aniview speed2" data-av-animation="bounceInLeft">
+                    Login with social account
+                </div>
+                <div class="w-100 d-flex justify-content-center mt-4 mb-4">
+                    <div class="social-icons d-flex justify-content-between">
+                        <a class="aniview speed4" href="#" data-av-animation="bounceInLeft">
+                            <div class="facebook"><i class="fab fa-facebook-f social-icon"></i></div>
+                        </a>
+                        <a class="aniview speed3" href="#" data-av-animation="bounceInLeft">
+                            <div class="twitter"><i class="fab fa-twitter social-icon"></i></div>
+                        </a>
+                        <a class="aniview speed2" href="#" data-av-animation="bounceInLeft">
+                            <div class="linkedin"><i class="fab fa-linkedin-in social-icon"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="or position-relative aniview speed2" data-av-animation="bounceInLeft">
+                    <hr>
+                    <div>OR</div>
+                </div>
+                <div class="login-text aniview speed3" data-av-animation="bounceInLeft">
+                    Login with email & Password
+                </div>
+
+                {% if message.content %}
+                    <div class="alert alert-danger">
+                        {{ message.content }}
+                    </div>
+                {% endif %}
+                <div class="alert alert-info helper-alert d-none"></div>
+                <form class="form-group aniview speed4" method="POST" data-av-animation="fadeIn">
+                    {% csrf_token %}
+                    <div class="main-form">
+                        <div class="input-email mt-4">
+                            <label for="email" class="text-cus-dark">Email Address</label>
+                            <input type="email" id="email" class="form-control" name="email"
+                                   placeholder="Email Address" required>
+                        </div>
+                        <div class="input-password mt-4">
+                            <label for="password" class="w-100">
+                                <div class="w-100 text-cus-dark d-flex justify-content-between">
+                                    <p class="m-0">Password</p>
+                                    <div class="d-flex flex-row">
+                                        <a href="#" onclick="onForgotPassword()"
+                                           class="forgot-password text-cus-primary float-right"><b>Forgot</b></a>
+                                        <p class="ml-2 text-black-50 m-0"> Password?</p>
+                                    </div>
+
+                                </div>
+                            </label>
+                            <div class="password-view">
+                                <input type="password" id="password" class="form-control" name="password"
+                                       placeholder="Password" required>
+                                <i class="eye-icon fas fa-eye text-cus-secondary" onclick="onToggleView()"></i>
+                            </div>
+                        </div>
+                        <div class="toggle-save-password custom-control custom-switch mt-4">
+                            <input type="checkbox" class="custom-control-input" id="remember-password"
+                                   name="remember-password">
+                            <label class="custom-control-label text-cus-dark" for="remember-password">Save
+                                Password</label>
+                        </div>
+                        <button type="submit" class="mt-4 btn-cus btn-login btn-cus-secondary border-0 w-100">
+                            Login
+                        </button>
+                        <div class="goto-signup mt-4 d-flex flex-row">
+                            <p class="text-cus-dark m-0">Don't have an Account? </p>
+                            <a href="{% url 'sign_up' %}" class="" style="width: 100px"><span
+                                    class="text-cus-primary ml-1"><b>Sign Up</b></span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-7 col-xl-8 d-none d-lg-block p-0 right" style="z-index: -100">
+            <img src="{% static 'accounts/assets/img/login-bg.png' %}"
+                 class="float-right mt-5 right-img aniview speed4" alt="right-img" data-av-animation="fadeIn">
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="forgot-password-modal" tabindex="-1" role="dialog"
+             aria-labelledby="forgotPasswordModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="forgotPasswordModalTitle">Send Request to Reset Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="alert alert-danger d-none">Invalid Email</div>
+                            <input type="email" class="form-control email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cus btn-cus-primary" onclick="onSendRequestToResetPassword()">
+                            Request
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="reset-password-modal" tabindex="-1" role="dialog"
+             aria-labelledby="resetPasswordModalTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resetPasswordModalTitle">Reset Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="alert alert-danger d-none"></div>
+                            <label for="new-password">New Password</label>
+                            <input type="password" id="new-password" class="form-control mb-3" name="password1"
+                                   placeholder="New password">
+                            <label for="confirm-new-password">Confirm New Password</label>
+                            <input type="password" id="confirm-new-password" class="form-control" name="password2"
+                                   placeholder="Confirm new password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cus btn-cus-primary" onclick="onResetPassword()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script>
+        let $loading = $('.loading-gif');
+        let $helperAlert = $('.helper-alert');
+
+        if ('{{ reset_password }}' === 'True') {
+            $('#reset-password-modal').modal('show');
+        }
+
+        function onToggleView() {
+            const password = $('#password');
+            if (password.attr('type') === 'password') {
+                password.attr('type', 'text');
+                $('.eye-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                password.attr('type', 'password');
+                $('.eye-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        }
+
+        function onForgotPassword() {
+            let $forgotPasswordModal = $('#forgot-password-modal');
+            $forgotPasswordModal.modal('show');
+            document.body.style.paddingRight = 0;
+        }
+
+        function onSendRequestToResetPassword() {
+            $helperAlert.addClass('d-none');
+            let $email = $('#forgot-password-modal .modal-body .email');
+            let email = $email.val();
+            let $alert = $('#forgot-password-modal .modal-body .alert');
+            $alert.addClass('d-none');
+            if (isValidateEmail(email)) {
+                $loading.removeClass('d-none');
+                $.ajax({
+                    url: "{% url 'forgot_password' %}",
+                    type: "post",
+                    dataType: 'json',
+                    data: {
+                        email
+                    },
+                    success: function (response) {
+                        if (response['result'] === 'oops') {
+                            $alert.text(response['message']);
+                            $alert.removeClass('d-none');
+                        } else {
+                            $('#forgot-password-modal').modal('hide');
+                            $helperAlert.text('Please check your email.').removeClass('d-none');
+                        }
+                        $loading.addClass('d-none');
+                    },
+                    error: function (error) {
+                        $alert.text('Please resend the request.')
+                        $alert.removeClass('d-none');
+                    }
+                })
+            } else {
+                $alert.text('Invalid Email');
+                $alert.removeClass('d-none');
+            }
+        }
+
+        function validTwoPasswords(password1, password2) {
+            if (password1 === password2) {
+                if (password1.length < 8) {
+                    return [false, "The password must be at least 8 letters"];
+                }
+                return [true, 'success'];
+            } else {
+                return [false, "The passwords seems to be mismatched."];
+            }
+        }
+
+        function onResetPassword() {
+            let password1 = $('#new-password').val();
+            let password2 = $('#confirm-new-password').val();
+            let $alert = $('#reset-password-modal .modal-body .alert');
+            $alert.addClass('d-none');
+            let [valid, message] = validTwoPasswords(password1, password2)
+            if (valid) {
+                $loading.removeClass('d-none');
+                $.ajax({
+                    url: "{% url 'forgot_password_redirect' %}",
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        password1,
+                        'forgot_password_confirm_id': '{{ forgot_password_confirm_id }}'
+                    },
+                    success: function (response){
+                        $loading.addClass('d-none');
+                        $helperAlert.text('The password has been reset successfully.')
+                        $helperAlert.removeClass('d-none');
+                        $('#reset-password-modal').modal('hide')
+                    },
+                    error: function (error){
+                        $loading.addClass('d-none');
+                        $alert.text('Oops, Please reset the password again.');
+                        $alert.removeClass('d-none');
+                    }
+
+                })
+            } else {
+                $alert.text(message);
+                $alert.removeClass('d-none')
+            }
+        }
+    </script>
+{% endblock %}

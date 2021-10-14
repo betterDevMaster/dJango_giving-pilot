@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}
+        Giving Pilot
+    {% endblock %}</title>
+    <!-- Lato Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/vendor/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/custom.css' %}">
+
+    <!-- magic scroll  css !-->
+    <link rel="stylesheet" href="{% static 'accounts/assets/css/vendor/magicscroll.css' %}">
+
+    <!-- aos css !-->
+    {#    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">#}
+
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <script src="{% static 'accounts/assets/js/vendor/jquery-3.5.1.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    {% block extra_style %}
+    {% endblock %}
+</head>
+<body>
+{% block cover %}
+{% endblock %}
+<div id="dashboard-frame" class="d-flex flex-row {% if is_preview %}with-preview-bar{% endif %}">
+    {% include 'dashboard/_sidebar.html' %}
+    <div id="main" class="d-flex flex-column w-100">
+        {% include 'dashboard/_topbar.html' %}
+        <div style="padding-top: 82px">
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% block footer %}
+            {% include '_footer.html' %}
+        {% endblock %}
+    </div>
+    {% block right-bar %}
+    {% endblock %}
+</div>
+
+<script src="{% static 'dashboard/assets/js/common.js' %}"></script>
+
+<!-- magic scroll js !-->
+<script type="text/javascript" src="{% static 'accounts/assets/js/vendor/magicscroll.js' %}"></script>
+
+<!--  datatable js !-->
+<script src="{% static 'accounts/assets/js/vendor/jquery.dataTables.min.js' %}"></script>
+
+<!-- boostrap library ~-->
+<script src="{% static 'accounts/assets/js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'accounts/assets/js/vendor/bootstrap.min.js' %}"></script>
+
+<!-- aos js !-->
+{#<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>#}
+{#<script>#}
+{#    AOS.init();#}
+{#</script>#}
+
+<!-- slim scroll js !-->
+<script src="{% static 'accounts/assets/js/vendor/jquery.slimscroll.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-video@latest/dist/js/splide-extension-video.min.js"></script>
+
+<script src="{% static 'dashboard/assets/js/slider-preview.js' %}"></script>
+
+{% block extra_script %}
+{% endblock %}
+</body>
+</html>

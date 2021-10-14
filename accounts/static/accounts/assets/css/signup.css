@@ -1,0 +1,173 @@
+.form-control {
+  border: none;
+}
+
+html body #signup {
+  padding: 0 0 0 10%;
+}
+
+@media screen and (max-width: 992px) {
+  html body #signup {
+    padding: 0;
+  }
+}
+
+html body #signup .top .top-img {
+  margin-top: -50px;
+  width: 100%;
+}
+
+html body #signup .title {
+  color: #223b60;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 60px;
+  letter-spacing: 2px;
+  font-size: 45px;
+  padding-left: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  html body #signup .title {
+    font-size: 35px;
+    line-height: 40px;
+    margin-top: 20px;
+    padding-left: 5%;
+  }
+}
+
+html body #signup .title span {
+  color: #00aeef;
+  font-style: italic;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  html body #signup .right-img {
+    content: url("../img/signup-bg-crop.png");
+  }
+}
+
+html body .left {
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 992px) {
+  html body .left {
+    padding: 0 10% 0 10%;
+  }
+}
+
+html body .left .title {
+  color: #223b60;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 60px;
+  letter-spacing: 2px;
+  font-size: 45px;
+}
+
+html body .left .title span {
+  color: #00aeef;
+  font-style: italic;
+}
+
+html body .left .signup-form input {
+  background: #f2f3f5;
+  height: 55px;
+  border-radius: 6px;
+}
+
+html body .left .signup-form .social-text {
+  text-transform: uppercase;
+  color: #8a94a6;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .signup-form .social-text {
+    font-size: 14px;
+    letter-spacing: 2.8px;
+  }
+}
+
+html body .left .signup-form .social-icons {
+  min-width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .signup-form .social-icons {
+    min-width: 150px;
+  }
+}
+
+html body .left .signup-form .social-icons .social-icon {
+  font-size: 30px !important;
+}
+
+html body .left .signup-form .social-icons .social-icon:hover {
+  color: #00e1ff !important;
+}
+
+html body .left .signup-form .or {
+  color: #8a94a6;
+  text-align: center;
+}
+
+html body .left .signup-form .or hr {
+  width: 100%;
+}
+
+html body .left .signup-form .or div {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-35px, 0);
+  background-color: white;
+  width: 70px;
+  height: 30px;
+}
+
+html body .left .signup-form .signup-text {
+  text-transform: uppercase;
+  color: #8a94a6;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .signup-form .signup-text {
+    font-size: 14px;
+  }
+}
+
+html body .left .signup-form .password-view {
+  position: relative;
+}
+
+html body .left .signup-form .password-view .eye-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+html body .left .signup-form .password-view .eye-icon :hover {
+  color: #00aeef;
+  cursor: pointer;
+}
+
+html body .left .signup-form .goto-login a span:hover {
+  color: #00e1ff !important;
+}
+
+html body .left .signup-form .btn-signup {
+  height: 45px;
+}
+
+/*# sourceMappingURL=signup.css.map */

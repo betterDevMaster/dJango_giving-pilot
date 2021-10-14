@@ -1,0 +1,112 @@
+{% load static %}
+<div id="frame-right-bar-on-pc" class="border-left border-bottom frame-right-bar">
+    <div class="d-flex flex-column container-fluid" style="padding: 25px">
+        <div class="text-uppercase text-cus-secondary" style="letter-spacing: 2px">About the campaign</div>
+        <div class="company">
+            <div class="logo"></div>
+            <div class="info float-right">
+                <div class="title">COVID-19 Aftermath New York City Fund</div>
+                <div class="company-name">ABC Inc.</div>
+            </div>
+        </div>
+        <div class="date">
+            <div class="dots-and-line">
+                <div class="position-relative">
+                    <div class="top-dot"></div>
+                    <div class="line"></div>
+                    <div class="bottom-dot"></div>
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-3" style="font-size: 12px;">
+                <div class="d-flex justify-content-between">
+                    <div class="text-cus-secondary text-uppercase">starts</div>
+                    <div class=" text-cus-dark">Wed 21 July, 2020, 3:30 PM</div>
+                </div>
+                <div class="d-flex justify-content-between" style="margin-top: 15px">
+                    <div class="text-cus-secondary text-uppercase">ends</div>
+                    <div class="text-cus-dark">Wed 21 July, 2020, 9 PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column container-fluid" style="padding: 25px">
+        <div class="contributors mt-4">
+            <div class="d-flex justify-content-between">
+                <div class="text-cus-secondary text-uppercase font-lato" style="letter-spacing: 2px">
+                    Contributors
+                    <span
+                            class="text-cus-primary">12,345</span></div>
+                <a href="#" class="text-cus-primary small text-uppercase">See all</a>
+            </div>
+            <div class="photos-and-detail mt-3">
+                <div class="photos">
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                </div>
+                <div class="ml-auto d-flex justify-content-center align-items-center">
+                    <div class="detail">
+                        +1.3K
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="goal-amount">
+        <div class="d-flex justify-content-between">
+            <div class="text-cus-secondary text-uppercase" style=";letter-spacing: 2px">Fund Raising Summary</div>
+            <a href="#" class="text-cus-primary text-uppercase small">View Details</a>
+        </div>
+        <div class="amount-charged mt-1">
+            <div><span class="raised text-cus-dark"><b>$9,100</b></span> of $15,000 raised</div>
+            <div class="progress-bar mt-1" style="height: 45px">
+                <div class="full-bar" style="height: 45px"></div>
+                <div class="filled-bar" style="height: 45px">
+                    <div class="position-relative">
+                        <div class="vertical-bar" style="height: 45px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-between mt-1 mb-2">
+                <div class="text-cus-dark"><b>$0.00</b></div>
+                <div class="text-cus-dark"><b>$15,000</b></div>
+            </div>
+        </div>
+    </div>
+    <div class="invite-members form-group mt-4">
+        <div class="text-cus-secondary text-uppercase font-lato ls-2"><b>Invite Members</b></div>
+        <div class="with-icon mt-3">
+            <input type="email" class="form-control with-bg-light-blue " placeholder="Enter Email to Invite">
+            <div class="input-icon"><img src="{% static 'dashboard/assets/img/paper-plane-png.png' %}" class="img"
+                                         alt="paper-plane"></div>
+        </div>
+        <div class="text-cus-primary text-uppercase ls-2 mt-3"><b>+ import contacts</b></div>
+    </div>
+    <div class="share-link form-group mt-4">
+        <div class="share-title">
+            <div class="text-cus-secondary text-uppercase font-lato ls-2"><b>Share Link</b></div>
+            <div class="share-icon-group">
+                <div class="share-icon"><img src="{% static 'dashboard/assets/img/whatsapp-png.png' %}" class="img" alt="share-icon"></div>
+                <div class="share-icon"><img src="{% static 'dashboard/assets/img/facebook-png.png' %}" class="img" alt="share-icon"></div>
+                <div class="share-icon"><img src="{% static 'dashboard/assets/img/message-png.png' %}" class="img" alt="share-icon"></div>
+                <div class="share-icon"><img src="{% static 'dashboard/assets/img/email-png.png' %}" class="img" alt="share-icon"></div>
+                <div class="share-icon"><img src="{% static 'dashboard/assets/img/detail.png' %}" class="img" alt="share-icon"></div>
+            </div>
+        </div>
+        <div class="with-icon mt-3">
+            <input type="email" class="form-control with-bg-light-blue " placeholder="givingproject/com/32423">
+            <div class="input-icon"><img src="{% static 'dashboard/assets/img/copy-png.png' %}" class="img"
+                                         alt="copy-plane"></div>
+        </div>
+        <div class="btn-cus btn-cus-secondary mt-4">Edit Campaign</div>
+    </div>
+
+</div>

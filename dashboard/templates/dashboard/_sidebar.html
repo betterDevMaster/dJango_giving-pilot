@@ -1,0 +1,39 @@
+{% load static %}
+<div id="sidebar" class="d-flex flex-column border-right">
+    <!--
+    <div class="hamburger item">
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line mt-auto"></div>
+            <div class="line mt-auto"></div>
+        </div>
+    </div>
+    -->
+    <div class="house item tab-item" data-tab-link="homepage"><a href="#"><i
+            class="item-icon fas fa-home active"></i></a></div>
+    <!--
+    <div class="meter item tab-item" data-tab-link=""><a href="#"><i class="item-icon fas fa-tachometer-alt"></i></a>
+    </div>
+    -->
+    <div class="plus item tab-item {% if on_creating %}no-action{% endif %}" data-tab-link="create-new-campaign">
+        <a href="#"><i
+                class="item-icon fas fa-plus"></i></a>
+    </div>
+    <!--
+    <div class="compass item tab-item" data-tab-link=""><a href="#"><i class="item-icon far fa-compass"></i></a></div>
+    <div class="bell item tab-item" data-tab-link=""><a href="#"><i class="item-icon far fa-bell"></i></a></div>
+    -->
+    <div class="profile-photo item {% if is_preview %}with-preview-profile-photo{% endif %}">
+        <div class="img">
+            <div class="sub-menu">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class="link-info" value="{% if user.is_authenticated %}{% url 'dashboard:home_page' %}
+        {% else %}{% url 'dashboard:home_page_public' %}{% endif %}" data-tab-link="homepage" hidden>
+        <input type="text" class="link-info" value="{% url 'dashboard:create_new_campaign' %}"
+               data-tab-link="create-new-campaign" hidden>
+    </div>
+</div>

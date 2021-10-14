@@ -1,0 +1,182 @@
+.form-control {
+  border: none;
+}
+
+html body #login {
+  padding: 0 0 0 10%;
+}
+
+@media screen and (max-width: 992px) {
+  html body #login {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html body #login {
+    overflow-x: hidden;
+  }
+}
+
+html body #login .title {
+  color: #223b60;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 60px;
+  letter-spacing: 2px;
+  font-size: 45px;
+  padding-left: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  html body #login .title {
+    font-size: 35px;
+    line-height: 40px;
+    margin-top: 20px;
+    padding-left: 5%;
+  }
+}
+
+html body #login .title span {
+  color: #00aeef;
+  font-style: italic;
+}
+
+html body .top .top-img {
+  margin-top: -50px;
+  width: 100%;
+}
+
+html body .left {
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 992px) {
+  html body .left {
+    padding: 0 10% 0 10%;
+  }
+}
+
+html body .left .title {
+  color: #223b60;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 60px;
+  letter-spacing: 2px;
+  font-size: 45px;
+}
+
+html body .left .title span {
+  color: #00aeef;
+  font-style: italic;
+}
+
+html body .left .login-form input {
+  background: #f2f3f5;
+  height: 55px;
+  border-radius: 6px;
+}
+
+html body .left .login-form .social-text {
+  text-transform: uppercase;
+  color: #8a94a6;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .login-form .social-text {
+    font-size: 14px;
+  }
+}
+
+html body .left .login-form .social-icons {
+  min-width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .login-form .social-icons {
+    min-width: 150px;
+  }
+}
+
+html body .left .login-form .social-icons .social-icon {
+  font-size: 30px !important;
+}
+
+html body .left .login-form .social-icons .social-icon:hover {
+  color: #00e1ff !important;
+}
+
+html body .left .login-form .or {
+  color: #8a94a6;
+  text-align: center;
+}
+
+html body .left .login-form .or hr {
+  width: 100%;
+}
+
+html body .left .login-form .or div {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-35px, 0);
+  background-color: white;
+  width: 70px;
+  height: 30px;
+}
+
+html body .left .login-form .login-text {
+  text-transform: uppercase;
+  color: #8a94a6;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  html body .left .login-form .login-text {
+    font-size: 14px;
+  }
+}
+
+html body .left .login-form .input-password .forgot-password:hover {
+  color: #00e1ff !important;
+}
+
+html body .left .login-form .password-view {
+  position: relative;
+}
+
+html body .left .login-form .password-view .eye-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+html body .left .login-form .password-view .eye-icon :hover {
+  color: #00aeef;
+  cursor: pointer;
+}
+
+html body .left .login-form .goto-signup a span:hover {
+  color: #00e1ff !important;
+}
+
+html body .left .login-form .btn-login {
+  height: 45px;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  html body .right-img {
+    content: url("../img/login-bg-crop.png");
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

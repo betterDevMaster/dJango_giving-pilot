@@ -1,0 +1,14 @@
+{% for campaign in campaigns %}
+    <tr>
+        <td onclick="onCampaignSearch('{{ campaign.id }}')">
+            <div class="logo">
+                <img src="{{ campaign.organization_logo.url }}" alt="logo">
+            </div>
+            <div class="info">
+                <div class="campaign-title">{{ campaign.title }}</div>
+                <div class="company-name">{{ campaign.organization_name }}</div>
+            </div>
+            <div style="display: none!important;">{{ campaign.tags }}</div>
+        </td>
+    </tr>
+{% endfor %}

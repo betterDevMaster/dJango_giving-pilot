@@ -1,0 +1,22 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}
+    GivingPilot Dashboard
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/dashboard-slider.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="page-content home-page side-bar-tab-info" data-tab-link="homepage">
+        <div class="content-top-bar w-100 m-0">
+            {% include 'dashboard/homepage/_content_top_bar.html' %}
+        </div>
+        {% include 'dashboard/homepage/_explore.html' %}
+        {% include 'dashboard/homepage/_your_current.html' %}
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script src="{% static 'dashboard/assets/js/home-page.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/dashboard-slider.js' %}"></script>
+{% endblock %}

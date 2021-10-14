@@ -1,0 +1,501 @@
+{% load static %}
+{% load humanize %}
+{% load url_thumbnail %}
+<div class="explore campaigns-view active-tab">
+    <div class="campaign-view featured">
+        <div class="campaign-view-header">
+            <div class="title">
+                <span>Featured & Notable</span> <br> Campaigns
+            </div>
+            <div class="sub-text ml-4"> Certe, inquam, pertinax non possim accommodare torquatos nostros? quos tu
+                paulo ante cum.
+            </div>
+        </div>
+        <div class="campaign-view-content">
+            <div class="content-body">
+                <div id="featured-ms">
+                    <!-- Dashboard Main Slider -->
+                    <section class="dash-main-slider">
+                        <div class="container">
+                            <div class="dash-main-slider__nav">
+                                <button class="splide__arrow splide__arrow--prev" type="button"
+                                        aria-label="Previous slide">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                    </svg>
+                                </button>
+
+                                <button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                                        <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="dash-main-slider-row">
+                                <div class="dash-main-slider-col__primary">
+
+                                    <!-- Dashboard Main Primary Slider -->
+                                    <div class="dash-main-slider__primary">
+                                        <div id="sliderDashMainPrimary" class="splide">
+                                            <div class="splide__track">
+                                                <ul class="splide__list">
+
+                                                    <!-- Dashboard Main Primary Slide -->
+                                                    {% for campaign in campaigns %}
+                                                        <li class="splide__slide">
+
+                                                            <!-- Slide Image -->
+                                                            <div class="splide__slide__container">
+                                                                <a href="{% url 'dashboard:cf_public' campaign.id %}">
+                                                                    <img src="{{ campaign.large_media_cover }}"
+                                                                         alt="Sample Image 01">
+                                                                </a>
+
+                                                                <!-- Slide Category -->
+                                                                <a class="dash-main-slider__cat"
+                                                                   href="{% url 'dashboard:cf_public' campaign.id %}">CrowedFunding</a>
+                                                            </div>
+
+                                                            <!-- Slide Content -->
+                                                            <div class="dash-main-slider__content">
+
+                                                                <!-- Slide Title -->
+                                                                <div class="dash-main-slider__header">
+                                                                    <h3><a class="dash-main-slider__title" href="#">
+                                                                        {{ campaign.title }}
+                                                                    </a></h3>
+                                                                </div>
+
+                                                                <!-- Slide Credentials -->
+                                                                <a class="dash-main-slider__credentials" href="#">
+                                                                    <div class="dash-main-slider__thumb">
+                                                                        <img src="https://picsum.photos/id/10/20/20"
+                                                                             alt="">
+                                                                    </div>
+                                                                    <div class="dash-main-slider__auth">
+                                                                        {{ campaign.organization_name }}
+                                                                    </div>
+                                                                </a>
+
+                                                                <!-- Slide Excerpt -->
+                                                                <div class="dash-main-slider__excerpt">
+                                                                    <div class="only-two-lines">
+                                                                        {{ campaign.description|safe }}
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Slider Details -->
+                                                                <div class="dash-main-slider__details">
+
+                                                                    <!-- Collect -->
+                                                                    <div class="collect-block">
+                                                                        <p>
+                                                                            <strong>${{ campaign.raised_fund|intcomma }}</strong>
+                                                                            of
+                                                                            ${{ campaign.goal_amount|add:"0"|intcomma }}
+                                                                            raised
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <!-- Remains -->
+                                                                    <div class="remains-block">
+                                                                        <div class="remains-block__label">Ends in</div>
+                                                                        <div class="remains-block__val">2 days</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Progress Bar -->
+                                                                <div class="progress-block">
+                                                                    <div class="progress-block__val"
+                                                                         style="width: {{ campaign.raised_percentage }}%"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.dash-main-slider__primary -->
+
+                                </div><!-- /.dash-main-slider-col__primary -->
+                                <div class="dash-main-slider-col__secondary">
+
+                                    <!-- Dashboard Main Secondary Slider -->
+                                    <div class="dash-main-slider__secondary">
+                                        <div id="sliderDashMainSecondary" class="splide">
+                                            <div class="splide__track">
+                                                <ul class="splide__list">
+
+                                                    <!-- Dashboard Main Secondary Slide -->
+                                                    {% for campaign in campaigns %}
+                                                        <li class="splide__slide">
+
+                                                            <!-- Slide Image -->
+                                                            <div class="splide__slide__container">
+                                                                <a href="{% url 'dashboard:cf_public' campaign.id %}">
+                                                                    <img src="{{ campaign.large_media_cover_small }}"
+                                                                         alt="">
+                                                                </a>
+
+                                                                <!-- Slide Category -->
+                                                                <a class="dash-main-slider__cat"
+                                                                   href="#">CrowedFunding</a>
+                                                            </div>
+
+                                                            <!-- Slide Content -->
+                                                            <div class="dash-main-slider__content">
+
+                                                                <!-- Slide Title -->
+                                                                <div class="dash-main-slider__header">
+                                                                    <h3><a class="dash-main-slider__title"
+                                                                           href="#">{{ campaign.title }}</a></h3>
+                                                                </div>
+
+                                                                <!-- Slide Credentials -->
+                                                                <a class="dash-main-slider__credentials" href="#">
+                                                                    <div class="dash-main-slider__thumb">
+                                                                        <img src="https://picsum.photos/id/30/20/20"
+                                                                             alt="">
+                                                                    </div>
+                                                                    <div class="dash-main-slider__auth">
+                                                                        {{ campaign.organization_name }}
+                                                                    </div>
+                                                                </a>
+                                                                <!-- Slide Excerpt -->
+                                                                <div class="dash-main-slider__excerpt">
+                                                                    <div class="only-two-lines">
+                                                                        {{ campaign.description|safe }}
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Slider Details -->
+                                                                <div class="dash-main-slider__details">
+
+                                                                    <!-- Collect -->
+                                                                    <div class="collect-block"
+                                                                         style="margin-top: 22px!important;">
+                                                                        <p>
+                                                                            <strong>${{ campaign.raised_fund|intcomma }}</strong>
+                                                                            of
+                                                                            ${{ campaign.goal_amount|add:"0"|intcomma }}
+                                                                            raised
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <!-- Remains -->
+                                                                    <div class="remains-block">
+                                                                        <div class="remains-block__label">Ends in</div>
+                                                                        <div class="remains-block__val">2 days</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Progress Bar -->
+                                                                <div class="progress-block">
+                                                                    <div class="progress-block__val"
+                                                                         style="width: {{ campaign.raised_percentage }}%"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.dash-main-slider__secondary -->
+
+                                </div><!-- /.dash-main-slider-col__secondary -->
+                            </div><!-- /.dash-main-slider-row -->
+
+                        </div>
+                    </section><!-- /.dash-main-slider -->
+                </div>
+            </div>
+        </div>
+        <div class="campaign-view recently-added border-bottom">
+            <div class="campaign-view-header">
+                <div class="title"><span>Recently</span> Added</div>
+                <div class="see-all">
+                    <div class="see-all-btn btn-cus">See All</div>
+                </div>
+            </div>
+            <div class="campaign-view-content">
+                <div class="content-body">
+                    <!-- Dashboard Slider -->
+                    <section class="dash-slider">
+                        <div id="sliderDash" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+
+                                    <!-- Dashboard Main Secondary Slide -->
+                                    {% for campaign in campaigns %}
+                                        <li class="splide__slide">
+
+                                            <!-- Slide Image -->
+                                            <div class="splide__slide__container">
+                                                <a href="{% url 'dashboard:cf_public' campaign.id %}">
+                                                    <img src="{{ campaign.large_media_cover_small }}"
+                                                         alt="">
+                                                </a>
+
+                                                <!-- Slide Category -->
+                                                <a class="dash-main-slider__cat"
+                                                   href="#">CrowedFunding</a>
+                                            </div>
+
+                                            <!-- Slide Content -->
+                                            <div class="dash-main-slider__content">
+
+                                                <!-- Slide Title -->
+                                                <div class="dash-main-slider__header">
+                                                    <h3><a class="dash-main-slider__title"
+                                                           href="#">{{ campaign.title }}</a></h3>
+                                                </div>
+
+                                                <!-- Slide Credentials -->
+                                                <a class="dash-main-slider__credentials" href="#">
+                                                    <div class="dash-main-slider__thumb">
+                                                        <img src="https://picsum.photos/id/30/20/20"
+                                                             alt="">
+                                                    </div>
+                                                    <div class="dash-main-slider__auth">
+                                                        {{ campaign.organization_name }}
+                                                    </div>
+                                                </a>
+                                                <!-- Slide Excerpt -->
+                                                <div class="dash-main-slider__excerpt">
+                                                    <div class="only-two-lines">
+                                                        {{ campaign.description|safe }}
+                                                    </div>
+                                                </div>
+
+                                                <!-- Slider Details -->
+                                                <div class="dash-main-slider__details">
+
+                                                    <!-- Collect -->
+                                                    <div class="collect-block">
+                                                        <p>
+                                                            <strong>${{ campaign.raised_fund|intcomma }}</strong> of
+                                                            ${{ campaign.goal_amount|add:"0"|intcomma }} raised
+                                                        </p>
+                                                    </div>
+
+                                                    <!-- Remains -->
+                                                    <div class="remains-block">
+                                                        <div class="remains-block__label">Ends in</div>
+                                                        <div class="remains-block__val">2 days</div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Progress Bar -->
+                                                <div class="progress-block">
+                                                    <div class="progress-block__val"
+                                                         style="width: {{ campaign.raised_percentage }}%"></div>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </section><!-- /.dash-slider -->
+                </div>
+            </div>
+        </div>
+        <div class="campaign-view by-category border-bottom">
+            <div class="campaign-view-header">
+                <div class="title"><span>Explore</span> by <br> Category</div>
+                <div class="see-all">
+                    <div class="see-all-btn btn-cus">See All</div>
+                </div>
+            </div>
+
+            <div class="campaign-view-content">
+
+                <aside class="sidebar">
+                    <div class="info-text"> Certe, inquam, pertinax non possim accommodare torquatos nostros? quos tu
+                        paulo
+                        ante cum.
+                    </div>
+                    <div class="sidebar-items mt-4">
+                        <div class="sidebar-item active">Category 1</div>
+                        <div class="sidebar-item ">Category 2</div>
+                        <div class="sidebar-item ">Category 3</div>
+                    </div>
+                </aside>
+
+                <!-- Dashboard Slider -->
+                <section class="dash-slider">
+                    <div id="sliderDash3" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                                <!-- Dashboard Main Secondary Slide -->
+                                {% for campaign in campaigns %}
+                                        <li class="splide__slide">
+
+                                            <!-- Slide Image -->
+                                            <div class="splide__slide__container">
+                                                <a href="{% url 'dashboard:cf_public' campaign.id %}">
+                                                    <img src="{{ campaign.large_media_cover_small }}"
+                                                         alt="">
+                                                </a>
+
+                                                <!-- Slide Category -->
+                                                <a class="dash-main-slider__cat"
+                                                   href="#">CrowedFunding</a>
+                                            </div>
+
+                                            <!-- Slide Content -->
+                                            <div class="dash-main-slider__content">
+
+                                                <!-- Slide Title -->
+                                                <div class="dash-main-slider__header">
+                                                    <h3><a class="dash-main-slider__title"
+                                                           href="#">{{ campaign.title }}</a></h3>
+                                                </div>
+
+                                                <!-- Slide Credentials -->
+                                                <a class="dash-main-slider__credentials" href="#">
+                                                    <div class="dash-main-slider__thumb">
+                                                        <img src="https://picsum.photos/id/30/20/20"
+                                                             alt="">
+                                                    </div>
+                                                    <div class="dash-main-slider__auth">
+                                                        {{ campaign.organization_name }}
+                                                    </div>
+                                                </a>
+                                                <!-- Slide Excerpt -->
+                                                <div class="dash-main-slider__excerpt">
+                                                    <div class="only-two-lines">
+                                                        {{ campaign.description|safe }}
+                                                    </div>
+                                                </div>
+
+                                                <!-- Slider Details -->
+                                                <div class="dash-main-slider__details">
+
+                                                    <!-- Collect -->
+                                                    <div class="collect-block">
+                                                        <p>
+                                                            <strong>${{ campaign.raised_fund|intcomma }}</strong> of
+                                                            ${{ campaign.goal_amount|add:"0"|intcomma }} raised
+                                                        </p>
+                                                    </div>
+
+                                                    <!-- Remains -->
+                                                    <div class="remains-block">
+                                                        <div class="remains-block__label">Ends in</div>
+                                                        <div class="remains-block__val">2 days</div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Progress Bar -->
+                                                <div class="progress-block">
+                                                    <div class="progress-block__val"
+                                                         style="width: {{ campaign.raised_percentage }}%"></div>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="campaign-view recommended">
+            <div class="campaign-view-header">
+                <div class="title"><span>Recommended</span> for you</div>
+                <div class="see-all">
+                    <div class="see-all-btn btn-cus">See All</div>
+                </div>
+            </div>
+            <div class="campaign-view-content">
+                <div class="content-body">
+                    <!-- Dashboard Slider -->
+                    <section class="dash-slider">
+                        <div id="sliderDash4" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <!-- Dashboard Main Secondary Slide -->
+                                    {% for campaign in campaigns %}
+                                        <li class="splide__slide">
+
+                                            <!-- Slide Image -->
+                                            <div class="splide__slide__container">
+                                                <a href="{% url 'dashboard:cf_public' campaign.id %}">
+                                                    <img src="{{ campaign.large_media_cover_small }}"
+                                                         alt="">
+                                                </a>
+
+                                                <!-- Slide Category -->
+                                                <a class="dash-main-slider__cat"
+                                                   href="#">CrowedFunding</a>
+                                            </div>
+
+                                            <!-- Slide Content -->
+                                            <div class="dash-main-slider__content">
+
+                                                <!-- Slide Title -->
+                                                <div class="dash-main-slider__header">
+                                                    <h3><a class="dash-main-slider__title"
+                                                           href="#">{{ campaign.title }}</a></h3>
+                                                </div>
+
+                                                <!-- Slide Credentials -->
+                                                <a class="dash-main-slider__credentials" href="#">
+                                                    <div class="dash-main-slider__thumb">
+                                                        <img src="https://picsum.photos/id/30/20/20"
+                                                             alt="">
+                                                    </div>
+                                                    <div class="dash-main-slider__auth">
+                                                        {{ campaign.organization_name }}
+                                                    </div>
+                                                </a>
+                                                <!-- Slide Excerpt -->
+                                                <div class="dash-main-slider__excerpt">
+                                                    <div class="only-two-lines">
+                                                        {{ campaign.description|safe }}
+                                                    </div>
+                                                </div>
+
+                                                <!-- Slider Details -->
+                                                <div class="dash-main-slider__details">
+
+                                                    <!-- Collect -->
+                                                    <div class="collect-block">
+                                                        <p>
+                                                            <strong>${{ campaign.raised_fund|intcomma }}</strong> of
+                                                            ${{ campaign.goal_amount|add:"0"|intcomma }} raised
+                                                        </p>
+                                                    </div>
+
+                                                    <!-- Remains -->
+                                                    <div class="remains-block">
+                                                        <div class="remains-block__label">Ends in</div>
+                                                        <div class="remains-block__val">2 days</div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Progress Bar -->
+                                                <div class="progress-block">
+                                                    <div class="progress-block__val"
+                                                         style="width: {{ campaign.raised_percentage }}%"></div>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </section><!-- /.dash-slider -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

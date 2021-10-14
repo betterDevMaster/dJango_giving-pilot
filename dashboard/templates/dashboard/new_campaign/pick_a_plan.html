@@ -1,0 +1,220 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+{% block content %}
+    <div id="pick-plan" class="plan w-100">
+        <div class="title">Pick a Plan</div>
+        <div class="plan-content w-100" style="overflow-x: auto">
+            <table class="plan-table">
+                <thead>
+                <tr class="plan-sort">
+                    <th></th>
+                    <th>
+                        <div class="plan-container">
+                            <div class="svg">{% include 'icons/level_0.html' %}</div>
+                            <div class="mt-auto">Freemium</div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="plan-container">
+                            <div class="svg">{% include 'icons/level_1.html' %}</div>
+                            <div class="mt-auto">Level 1</div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="plan-container">
+                            <div class="svg">{% include 'icons/level_2.html' %}</div>
+                            <div class="mt-auto">Level 2</div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="plan-container">
+                            <div class="svg">{% include 'icons/level_3.html' %}</div>
+                            <div class="mt-auto">Level 3</div>
+                        </div>
+                    </th>
+                </tr>
+                <tr class="plan-price">
+                    <th></th>
+                    <th><p><span class="price">$0<sup>/month</sup></span></p>
+                        <div>
+                            <button class="btn-cus btn-cus-primary w-100" style="height: 35px">Select</button>
+                        </div>
+                    </th>
+                    <th><p><span class="price">$125<sup>/month</sup></span></p>
+                        <div>
+                            <button class="btn-cus btn-cus-primary w-100" style="height: 35px">Select</button>
+                        </div>
+                    </th>
+                    <th><p><span class="price">$175<sup>/month</sup></span></p>
+                        <div>
+                            <button class="btn-cus btn-cus-primary w-100" style="height: 35px">Select</button>
+                        </div>
+                    </th>
+                    <th><p><span class="price">$225<sup>/month</sup></span></p>
+                        <div>
+                            <button class="btn-cus btn-cus-primary w-100" style="height: 35px">Select</button>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Platform Free</td>
+                    <td>4% of all donation + CC Fees</td>
+                    <td>3% of all donation + CC Fees</td>
+                    <td>1.5% of all donation + CC Fees</td>
+                    <td>0% of all donation + CC Fees</td>
+                </tr>
+                <tr>
+                    <td>Donation Pages</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Crowdfunding & Peer-to-Peer</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                </tr>
+                <tr class="show-comparison">
+                    <td class="w-100" colspan="5">
+                        <div class="">
+                            <button class="btn-cus btn-cus-secondary show-comparison-btn">Compare Plans</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="d-none">
+                    <td>Donation Pages</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr class="d-none">
+                    <td>Crowdfunding Pages</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr class="d-none">
+                    <td>Peer-to-Peer Pages</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr class="d-none">
+                    <td>Recurring donation</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Embed on your website</td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Donation Receipts</td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Donors cover your fees</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none blank"></tr>
+                <tr class="d-none">
+                    <td>Custom welcome emails</td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Custom other branding</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Custom Domains</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Custom form fields</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Team Fundraising pages form fields</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>P2P registration fees</td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="unchecked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td>Custom email branding</td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                    <td><span class="checked"></span></td>
+                </tr>
+                <tr class="d-none">
+                    <td></td>
+                    <td>
+                        <button class="btn-cus btn-cus-primary w-100">Select</button>
+                    </td>
+                    <td>
+                        <button class="btn-cus btn-cus-primary w-100">Select</button>
+                    </td>
+                    <td>
+                        <button class="btn-cus btn-cus-primary w-100">Select</button>
+                    </td>
+                    <td>
+                        <button class="btn-cus btn-cus-primary w-100">Select</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script>
+        $('.show-comparison-btn').click(function () {
+            $(".show-comparison").nextAll().toggleClass('d-none');
+        })
+    </script>
+{% endblock %}

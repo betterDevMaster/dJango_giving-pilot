@@ -1,0 +1,180 @@
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extra_large: 1200px;
+
+.form-control {
+  border: none;
+}
+
+html {
+  body {
+    #signup {
+      padding: 0 0 0 10%;
+      @media screen and (max-width: $large) {
+        padding: 0;
+      }
+
+      .top {
+        .top-img {
+          margin-top: -50px;
+          width: 100%;
+        }
+      }
+
+      .title {
+        color: #223b60;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 60px;
+        letter-spacing: 2px;
+        font-size: 45px;
+        padding-left: 10%;
+
+        @media screen and (max-width: $medium) {
+          font-size: 35px;
+          line-height: 40px;
+          margin-top: 20px;
+          padding-left: 5%;
+        }
+
+        span {
+          color: #00aeef;
+          font-style: italic;
+        }
+      }
+
+      .right-img {
+        @media (max-width: $extra_large) and (min-width: $large) {
+          content: url("../img/signup-bg-crop.png");
+        }
+      }
+    }
+
+    .left {
+      margin-bottom: 100px;
+
+      @media screen and (max-width: $large) {
+        padding: 0 10% 0 10%;
+      }
+
+      .title {
+        color: #223b60;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 60px;
+        letter-spacing: 2px;
+        font-size: 45px;
+
+        span {
+          color: #00aeef;
+          font-style: italic;
+        }
+      }
+
+      .signup-form {
+        input {
+          background: #f2f3f5;
+          height: 55px;
+          border-radius: 6px;
+        }
+
+        .social-text {
+          text-transform: uppercase;
+          color: #8a94a6;
+          font-family: Lato, sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 46px;
+          letter-spacing: 3px;
+
+          @media screen and (max-width: $medium) {
+            font-size: 14px;
+            letter-spacing: 2.8px;
+          }
+        }
+
+        .social-icons {
+          min-width: 200px;
+
+          @media screen and (max-width: $medium) {
+            min-width: 150px;
+          }
+
+          .social-icon {
+            font-size: 30px !important;
+
+            &:hover {
+              color: #00e1ff !important;
+            }
+          }
+        }
+
+        .or {
+          color: #8a94a6;
+          text-align: center;
+
+          hr {
+            width: 100%;
+          }
+
+          div {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translate(-35px, 0);
+            background-color: white;
+            width: 70px;
+            height: 30px;
+          }
+        }
+        .signup-text {
+          text-transform: uppercase;
+          color: #8a94a6;
+          font-family: Lato, sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 46px;
+          letter-spacing: 3px;
+
+          @media screen and (max-width: $medium) {
+            font-size: 14px;
+          }
+        }
+
+        .password-view {
+          position: relative;
+
+          .eye-icon {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+
+            :hover {
+              color: #00aeef;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .goto-login {
+          a {
+            span {
+              &:hover {
+                color: #00e1ff !important;
+              }
+            }
+
+          }
+
+        }
+
+        .btn-signup {
+          height: 45px;
+        }
+      }
+    }
+
+
+  }
+}

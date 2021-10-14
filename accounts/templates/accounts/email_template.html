@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">{{ title }}</h2>
+        <p>From: {{ from_email }}</p>
+        {% if mode == 'sign_up' %}
+        <p>
+            In order to signup Giving Pilot Platform <a href="{{ url }}">Please click this URL</a>.
+        </p>
+        {% elif mode == 'forgot_password' %}
+            In order to reset password <a href="{{ url }}">Please click this URL</a>.
+        {% endif %}
+    </div>
+</body>
+</html>

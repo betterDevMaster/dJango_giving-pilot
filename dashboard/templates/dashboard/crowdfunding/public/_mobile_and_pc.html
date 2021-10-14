@@ -1,0 +1,137 @@
+{% load static %}
+{% load humanize %}
+<div class="d-flex flex-column container-fluid" style="padding: 25px">
+    <div class="text-uppercase text-cus-secondary ls-2"><b>About the campaign</b></div>
+    <div class="company">
+        <div class="logo"><img class="img" src="{{ campaign.organization_logo.url }}" alt="logo"></div>
+        <div class="info float-right">
+            <div class="title">
+                {{ campaign.organization_description }}
+                {% if not is_public %}
+                    <span class="edit-item ml-2 text-cus-primary"
+                          data-nav-link="?tab=tab-basic-info&tag=org-description"><i
+                            class="fas fa-edit"></i></span>
+                {% endif %}
+            </div>
+            <div class="company-name">
+                {{ campaign.organization_name }}
+                {% if not is_public %}
+                    <span class="edit-item ml-2 text-cus-primary" data-nav-link="?tab=tab-basic-info&tag=org-name"><i
+                            class="fas fa-edit"></i></span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="date">
+        <div class="dots-and-line">
+            <div class="position-relative">
+                <div class="top-dot"></div>
+                <div class="line"></div>
+                <div class="bottom-dot"></div>
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-3" style="font-size: 12px;">
+            <div class="d-flex justify-content-between">
+                <div class="text-cus-secondary text-uppercase">starts</div>
+                {#                    <div class=" text-cus-dark">Wed 21 July, 2020, 3:30 PM</div>#}
+                <div class=" text-cus-dark">{{ campaign.start_date }}</div>
+            </div>
+            <div class="d-flex justify-content-between" style="margin-top: 15px">
+                <div class="text-cus-secondary text-uppercase">ends</div>
+                {#                    <div class="text-cus-dark">Wed 21 July, 2020, 9 PM</div>#}
+                <div class="text-cus-dark">{{ campaign.end_date }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-cus btn-cus-secondary"><span class="heart mr-2">♥</span> Contribute</div>
+</div>
+<div class="goal-amount">
+    <div class="d-flex justify-content-between">
+        <div class="text-cus-secondary text-uppercase ls-2"><b>Campaign Overview</b></div>
+        <a href="#" class="text-cus-primary text-uppercase small">View Details</a>
+    </div>
+    <div class="amount-charged mt-1">
+        <div><span class="raised text-cus-dark"><b>${{ campaign.raised_fund|intcomma }}</b></span> of
+            ${{ campaign.goal_amount|intcomma }}</div>
+        <div class="progress-bar mt-1">
+            <div class="full-bar"></div>
+            <div class="filled-bar" style="width: {{ campaign.raised_percentage }}!important;">
+                <div class="position-relative">
+                    <div class="vertical-bar"></div>
+                    <div class="circle"></div>
+                    <div class="raised">${{ campaign.raised_fund|intcomma }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 d-flex justify-content-between mt-1 mb-2" style="z-index: 100">
+            <div class="text-cus-dark"><b>$0.00</b></div>
+            <div class="text-cus-dark"><b>${{ campaign.goal_amount|intcomma }}</b></div>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-column container-fluid mb-5" style="padding: 25px">
+    <div class="contributors mt-4">
+        <div class="d-flex justify-content-between">
+            <div class="text-cus-secondary text-uppercase font-lato ls-2">
+                <b>Contributors</b>
+                <span
+                        class="text-cus-primary">0</span></div>
+            <a href="#" class="text-cus-primary small text-uppercase">See all</a>
+        </div>
+        <div class="photos-and-detail mt-3">
+            <!--
+                <div class="photos">
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                    <div class="photo"><img src="{% static 'dashboard/assets/img/Screenshot_5.png' %}"
+                                            class="photo-img" alt="photo"></div>
+                </div>
+            -->
+            <div class="ml-auto d-flex justify-content-center align-items-center">
+                <div class="detail">
+                    + 0
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="manager-and-members mt-5">
+        <div class="d-flex justify-content-between">
+            <div class="text-cus-secondary text-uppercase font-lato ls-2">
+                <b>Managers & Members</b>
+            </div>
+            <a href="#" class="text-cus-primary small text-uppercase">See all</a>
+        </div>
+        <div class="info-and-detail mt-3">
+            <div class="info">
+                <div class="photo">
+                    <!--
+                    <img src="{% static 'dashboard/assets/img/Screenshot_4.png' %}" alt="photo"
+                         class="photo-img">
+                         -->
+                </div>
+                <div class="personal-info">
+                    <div class="name">{{ campaign.full_name }}</div>
+                    {% if not campaign.is_email_private %}
+                        <div class="email"><i class="fas fa-envelope mr-2"></i>{{ campaign.second_email}}
+                        </div>
+                    {% endif %}
+                    {% if not campaign.is_mobile_private %}
+                        <div class="phone"><i class="fas fa-phone mr-2"></i>{{ campaign.mobile }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="ml-auto d-flex justify-content-center align-items-center">
+                <div class="detail">
+                    + 0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

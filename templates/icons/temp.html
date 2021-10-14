@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" crossorigin="anonymous">
+    {#  <link rel="stylesheet" href="{% static 'dashboard/assets/test/main.css'%}">#}
+    <style>
+        .crop-div canvas {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="original-div">
+    <img id="test-img" src="{% static 'dashboard/assets/img/campaign-main-ad-bg.png' %}" alt="test-img">
+    <button class="btn btn-primary" id="crop-img">Crop</button>
+</div>
+<div class="crop-div d-none" style="width: 200px; height: auto">
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/cropperjs/dist/cropper.js" crossorigin="anonymous"></script>
+<script src="{% static 'dashboard/assets/test/jquery-cropper.js' %}"></script>
+{#  <script src="./main.js"></script>#}
+<script type="text/javascript">
+    let options = {
+        aspectRatio: 16 / 9,
+        // preview: '.img-preview',
+        crop: function (e) {
+        },
+        viewMode: 2
+    };
+    let image = $('#test-img');
+    image.on({
+        ready: function (e) {
+            {#console.log(e.type);#}
+        },
+        cropstart: function (e) {
+            // console.log(e.type, e.detail.action);
+        },
+        cropmove: function (e) {
+            // console.log(e.type, e.detail.action);
+        },
+        cropend: function (e) {
+            // console.log(e.type, e.detail.action);
+        },
+        crop: function (e) {
+            // console.log(e.type);
+        },
+        zoom: function (e) {
+            // console.log(e.type, e.detail.ratio);
+        }
+    }).cropper(options);
+    let cropper = image.data('cropper');
+    console.log(cropper)
+    $('#crop-img').click(function (){
+        let html = image.cropper('getCroppedCanvas', {maxWidth: 4096, maxHeight: 4096});
+        $('.crop-div').html(html).removeClass('d-none');
+        $('.original-div').addClass('d-none');
+    })
+</script>
+</body>
+</html>

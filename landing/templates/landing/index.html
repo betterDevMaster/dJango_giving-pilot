@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="{% static 'landing/assets/css/landing.css' %}"/>
+{% endblock %}
+{% block content %}
+    <div id="first-section" class="first-and-fourth-section row w-100 m-0">
+        <div class="col-lg-4 p-0 mt-lg-5 mb-5" style="z-index: 10">
+            <div class="left d-flex flex-column">
+                <div class="title aniview speed1" data-av-animation="bounceInLeft">
+                    Take Flight for a <span>Cause</span>
+                </div>
+                <div class="content mt-3 aniview speed1" data-av-animation="bounceInLeft">
+                    Take your fundraiser to new horizons by deploying Giving Pilot, a user-friendly online
+                    fundraising platform
+                </div>
+                <div class="w-100 mt-4 aniview speed2" data-av-animation="bounceInLeft">
+                    <div class="input-with-label get-started-with-email">
+                        <input type="text" placeholder="Enter your email">
+                        <div class="input-btn">Get started</div>
+                    </div>
+                </div>
+
+                <div class="bottom w-100 mt-3">
+                    <p class="text-center aniview speed1" data-av-animation="rotateInUpLeft"><span>Easy-to-use</span>
+                        <span class="dot">Free to get started</span>
+                        <span class="dot">Cancel anytime</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 p-0">
+            <div class="right d-flex justify-content-end aniview speed3" data-av-animation="fadeIn">
+                <img src="{% static 'landing/assets/img/first-bg.png' %}" class="right-img right-img-first" alt="bg">
+            </div>
+        </div>
+    </div>
+    <div id="second-section" class="row w-100 m-0 mt-5 mb-5">
+        <div class="col-lg-7 col-xl-4 left">
+            <div class="title aniview speed1" data-av-animation="bounceInLeft">
+                <span>Launch</span> a Movement
+            </div>
+            <div class="content mt-4 aniview speed1" data-av-animation="bounceInLeft">
+                <b>Giving Pilot is a user-friendly fundraising platform that keeps you in control with our
+                    Fundraising Navigator.</b>
+                <p>Don’t worry though, our team of Co-Pilot’s are here to help you reach your fundraising
+                    destination.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 mb-5 middle d-flex flex-column">
+            <div class="img aniview speed3" data-av-animation="fadeIn">
+                <img src="{% static 'landing/assets/img/second-2.png' %}" class="bg-img" alt="bg-2">
+            </div>
+
+            <div class="title aniview speed2" data-av-animation="bounceInUp">Crowdfunding</div>
+            <div class="content aniview speed2" data-av-animation="bounceInUp">
+                Fund an initiative others can get behind.
+            </div>
+            <div class="mt-auto aniview speed2" data-av-animation="bounceInUp">
+                <div class="btn-cus-primary text-uppercase mt-3"> How it works</div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 mb-5 right w-100 d-flex flex-column">
+            <div class="img aniview speed3" data-av-animation="fadeIn">
+                <img src="{% static 'landing/assets/img/second-3.png' %}" class="bg-img" alt="bg-3">
+            </div>
+            <div class="title aniview speed2" data-av-animation="bounceInUp">Start Today</div>
+            <div class="content aniview speed2" data-av-animation="bounceInUp">
+                Involve others and Improve the world we live in
+            </div>
+            <div class="mt-auto aniview speed2" data-av-animation="bounceInUp">
+                <div class="btn-cus-secondary text-uppercase mt-3">become a giving pilot</div>
+            </div>
+        </div>
+    </div>
+    <div id="third-section">
+        <div class="row w-100 d-flex flex-column m-0">
+            <div class="title aniview speed1" data-av-animation="bounceInLeft">
+                <span>Discoveries</span> from Customers
+            </div>
+
+            <div class="left d-flex flex-column">
+                <div class="content mt-3 aniview speed1" data-av-animation="bounceInLeft">
+                    Get inspired by fellow Giving Pilot journeys.
+                </div>
+                <div class="w-100 mt-4 aniview speed2" data-av-animation="bounceInLeft">
+                    <div class="input-with-label get-started-with-email">
+                        <input type="text" placeholder="Enter your email">
+                        <div class="input-btn">Get started</div>
+                    </div>
+                </div>
+
+                <div class="bottom d-flex justify-content-between w-100 mt-3">
+                    <p class="text-center aniview speed1" data-av-animation="rotateInUpLeft">
+                        <span>Easy-to-use</span>
+                        <span class="dot">Free to get started</span>
+                        <span class="dot">Cancel anytime</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="quote aniview speed1" data-av-animation="fadeIn">
+                <img src="{% static 'landing/assets/img/double_quote.png' %}" alt="double-quote">
+            </div>
+            <div class="bg-img aniview speed1" data-av-animation="fadeIn" style="z-index: -10">
+                <img src="{% static 'landing/assets/img/testimonial-bg.png' %}" class="bg-img-img" alt="bg">
+            </div>
+            <div class="testimonial top aniview speed2" data-av-animation="fadeIn">
+                <div class="photo">
+                    <img src="{% static 'landing/assets/img/photo1.png' %}" alt="photo1">
+                </div>
+                <div class="panel d-flex flex-column">
+                    <div class="content">
+                        Epicurus in culpa, qui studiose antiqua persequeris, claris et quas molestias
+                        excepturi sint.
+                    </div>
+                    <div class="name">Peter Griffin</div>
+                    <div class="position">Actor, Fox Studio</div>
+                </div>
+            </div>
+            <div class="testimonial middle aniview speed2" data-av-animation="fadeIn">
+                <div class="photo">
+                    <img src="{% static 'landing/assets/img/photo2.png' %}" alt="photo2">
+                </div>
+                <div class="panel d-flex flex-column">
+                    <div class="content">
+                        Torquatos nostros? quos tu paulo ante cum teneam sententiam, quid et argumentandum et harum
+                        quidem se texit, ne ferae quidem rerum facilis est et aperta iudicari etenim quoniam detractis
+                        de homine sensibus reliqui nihil ut labore et caritatem, quae.
+                    </div>
+                    <div class="name">Adam Voigt</div>
+                    <div class="position">CEO, Acme Inc.</div>
+                </div>
+            </div>
+            <div class="testimonial bottom aniview speed2" data-av-animation="fadeIn">
+                <div class="photo">
+                    <img src="{% static 'landing/assets/img/photo3.png' %}" alt="photo3">
+                </div>
+                <div class="panel d-flex flex-column">
+                    <div class="content">
+                        EEpicurus in culpa, qui studiose antiqua persequeris, claris et quas molestias excepturi sint.
+                        Certe, inquam, pertinax non fuisse torquem detraxit hosti et quidem rerum necessitatibus saepe.
+                    </div>
+                    <div class="name">Emily Smith</div>
+                    <div class="position">Engineer, ABC Company</div>
+                </div>
+            </div>
+        </div>
+        <div id="testimonial-slide" class="carousel slide aniview speed1" data-ride="carousel" data-av-animation="bounceInUp">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="s-testimonial">
+                        <div class="photo">
+                            <img src="{% static 'landing/assets/img/photo1.png' %}" alt="photo1" class="s-photo">
+                        </div>
+                        <div class="panel d-flex flex-column">
+                            <div class="content">
+                                Epicurus in culpa, qui studiose antiqua persequeris, claris et quas molestias
+                                excepturi sint.
+                            </div>
+                            <div class="name">Peter Griffin</div>
+                            <div class="position">Actor, Fox Studio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="s-testimonial">
+                        <div class="photo">
+                            <img src="{% static 'landing/assets/img/photo2.png' %}" alt="photo2" class="s-photo">
+                        </div>
+                        <div class="panel d-flex flex-column">
+                            <div class="content">
+                                Torquatos nostros? quos tu paulo ante cum teneam sententiam, quid et argumentandum et
+                                harum
+                                quidem se texit, ne ferae quidem rerum facilis est et aperta iudicari etenim quoniam
+                                detractis
+                                de homine sensibus reliqui nihil ut labore et caritatem, quae.
+                            </div>
+                            <div class="name">Adam Voigt</div>
+                            <div class="position">CEO, Acme Inc.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="s-testimonial">
+                        <div class="photo">
+                            <img src="{% static 'landing/assets/img/photo3.png' %}" alt="photo3" class="s-photo">
+                        </div>
+                        <div class="panel d-flex flex-column">
+                            <div class="content">
+                                EEpicurus in culpa, qui studiose antiqua persequeris, claris et quas molestias excepturi
+                                sint.
+                                Certe, inquam, pertinax non fuisse torquem detraxit hosti et quidem rerum necessitatibus
+                                saepe.
+                            </div>
+                            <div class="name">Emily Smith</div>
+                            <div class="position">Engineer, ABC Company</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#testimonial-slide" role="button" data-slide="prev">
+                <div class="control-icon"><i class="prev-icon fas fa-arrow-circle-left"></i></div>
+            </a>
+            <a class="carousel-control-next" href="#testimonial-slide" role="button" data-slide="next">
+                <div class="control-icon"><i class="next-icon fas fa-arrow-circle-right"></i></div>
+            </a>
+        </div>
+    </div>
+    <div id="fourth-section" class="first-and-fourth-section row w-100 m-0">
+        <div class="col-lg-4 p-0 mt-lg-5 mb-5" style="z-index: 10">
+            <div class="left d-flex flex-column">
+                <div class="title aniview speed1" data-av-animation="bounceInLeft">
+                    <span>Advanced</span> Dashboard & Analytics
+                </div>
+                <div class="content mt-3 aniview speed2" data-av-animation="bounceInLeft">
+                    Giving Pilot helps you navigate through the fundraising process, keeping you on track and on time
+                    with our Fundraising Navigator.
+                </div>
+                <div data-aos="flip-down">
+                    <div class="btn-cus-secondary text-uppercase mt-4 aniview speed3" data-av-animation="fadeIn">
+                        Become a giving pilot
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 p-0">
+            <div class="right d-flex justify-content-end aniview speed4" data-av-animation="fadeIn">
+                <img src="{% static 'landing/assets/img/fourth-bg.png' %}" class="right-img right-img-fourth"
+                     style="height: 100%" alt="bg">
+            </div>
+        </div>
+    </div>
+    <div id="fifth-section" class="container text-center mt-5">
+        <div class="left w-100">
+            <div class="title aniview speed1" data-av-animation="bounceInUp">
+                <span>Are you ready</span> to take flight?
+            </div>
+            <div class="w-100 d-flex justify-content-center aniview speed2" data-av-animation="bounceInUp">
+                <div class="w-75 mt-4 input-div">
+                    <div class="input-with-label get-started-with-email">
+                        <input type="text" placeholder="Enter your email">
+                        <div class="input-btn">Get started</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-center">
+                <div class="bottom d-flex justify-content-center w-50 mt-3 text-div">
+                    <p class="text-center aniview speed2" data-av-animation="bounceInUp">
+                        <span>Easy-to-use</span>
+                        <span class="dot">Free to get started</span>
+                        <span class="dot">Cancel anytime</span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class='sign-up-url' value="{% url 'sign_up' %}" hidden>
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script src="{% static 'landing/assets/js/index.js' %}"></script>
+{% endblock %}

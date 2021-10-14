@@ -1,0 +1,147 @@
+/**
+ * Buttons
+ * -------------------------------------------------- */
+.btn-cus {
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/**
+ * Header
+ * -------------------------------------------------- */
+#top-bar {
+  height: 80px;
+}
+
+#top-bar .hamburger {
+  height: 80px !important;
+}
+
+#top-bar .hamburger .hamburger-icon-open .line {
+  height: 2px;
+}
+
+#top-bar .hamburger .hamburger-icon-open {
+  width: 24px;
+  height: 14px;
+}
+
+#top-bar .logo {
+  height: 80px;
+  padding: 0 30px;
+}
+
+#top-bar .logo svg {
+  width: 150px;
+  height: auto;
+}
+
+#top-bar .search-pc .top-search-bar {
+  height: 80px;
+}
+
+#top-bar .search-pc .search-icon {
+  width: 31px;
+  height: 31px;
+  font-size: 19px;
+  line-height: 19px;
+  left: 25px;
+  top: 24px;
+}
+
+#top-bar .search-pc .search-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+#top-bar .search-pc .top-search-bar {
+  color: #6b7c94;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: Lato, sans-serif;
+  padding-left: 70px;
+  border: 1px solid #e5f6fd;
+}
+
+#top-bar .search-pc .top-search-bar::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+#top-bar .search-pc .top-search-bar:-ms-input-placeholder {
+  opacity: 1;
+}
+
+#top-bar .search-pc .top-search-bar::-ms-input-placeholder {
+  opacity: 1;
+}
+
+#top-bar .search-pc .top-search-bar::placeholder {
+  opacity: 1;
+}
+
+/**
+ * Sidebar
+ * -------------------------------------------------- */
+.campaign-sidebar {
+  min-width: 500px;
+}
+
+.campaign-sidebar .sidebar {
+  width: auto;
+}
+
+.campaign-sidebar .title {
+  color: #0a1f44;
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.73;
+  letter-spacing: 0.54px;
+  text-align-last: left;
+  padding: 32px 43px 15px;
+}
+
+.campaign-sidebar .process-items .item {
+  padding: 4px 0 0 43px;
+}
+
+.campaign-sidebar .process-items .item:hover {
+  color: #00aeef !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.campaign-sidebar .process-items .unchecked span {
+  display: inline-block;
+  width: 28px;
+  position: relative;
+}
+
+.campaign-sidebar .process-items .unchecked span::before {
+  font-size: 13px;
+  position: absolute;
+  margin-right: auto;
+  left: 0;
+  top: -1px;
+}
+
+/**
+ * Steps section
+ * -------------------------------------------------- */
+.steps-section {
+  padding: 80px 0;
+}
+
+.campaign-content {
+  max-width: 650px;
+  padding: 0;
+}
+
+.campaign-content .title {
+  padding-top: 32px;
+}
+/*# sourceMappingURL=new-campaign-patches.css.map */

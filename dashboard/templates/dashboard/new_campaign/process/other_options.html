@@ -1,0 +1,88 @@
+{% load static %}
+<div id="nc-other-options" class="other-options d-none campaign-content tab-body" data-navlink="item-other">
+    <div class="title mt-4">Other Options</div>
+    <div class="text-cus-secondary">Tell us about yourself and add members to help your campaign</div>
+    <div class="content mb-5">
+        <div class="item category">
+            <div class="form-group with-icon">
+                <select class="camp-category form-control border-0" style="background-color: #f2f3f5!important;">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}"
+                                {% if campaign.category == category %}selected{% endif %}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+                <div class="icon"><i class="fas fa-chevron-down text-cus-primary"></i></div>
+            </div>
+        </div>
+        <div class="item searchable">
+            <div class="switch-with-line">
+                <div class="toggle-searchable custom-control custom-switch mt-4">
+                    <input type="checkbox"
+                           class="custom-control-input {% if campaign.is_campaign_searchable %}checked{% endif %}"
+                           id="toggle-searchable" {% if campaign.is_campaign_searchable %}checked{% endif %}>
+                    <label class="custom-control-label text-cus-dark" for="toggle-searchable">
+                        <b>Make my Campaign Searchable</b></label>
+                </div>
+                <div class="line" style="height: 150px"></div>
+            </div>
+            <div style="padding-left: 37px">
+                <div class="with-info mt-2"><p class="text-cus-secondary">
+                    Users will be able to search your campaign inside Giving Pilot Website</p>
+                </div>
+                <div class="text-cus-dark"><b>Add tags and keywords to improve your campaign's discoverability</b>
+                </div>
+                <div class="add-tags mt-2">
+                    {% for tag in tags %}
+                        <div class="tag {% if forloop.last %}end-tag{% endif %} tag-{{ forloop.counter0 }}">{{ tag }}<span
+                                onclick="onDeleteTag('tag-{{ forloop.counter0 }}')">&times;</span>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group m-0 p-0">
+                        <input type="text" class="form-control new-tag" style="outline: none">
+                    </div>
+                </div>
+                <div class="text-cus-secondary mt-2"><i>Press enter to separate</i></div>
+            </div>
+        </div>
+        <div class="item private">
+            <div class="toggle-private custom-control custom-switch mt-4">
+                <input type="checkbox"
+                       class="custom-control-input {% if campaign.is_campaign_private %}checked{% endif %}"
+                       id="toggle-private" {% if campaign.is_campaign_private %}checked{% endif %}>
+                <label class="custom-control-label text-cus-dark" for="toggle-private">
+                    <b>Make my Campaign Private</b></label>
+            </div>
+            <div style="padding-left: 37px">
+                <div class="with-info mt-2"><p class="text-cus-secondary">
+                    If you enable this option users without invitation will not be able to see details of your
+                    campaign.</p>
+                </div>
+            </div>
+        </div>
+        {#        <div class="item custom-url">#}
+        {#            <div class="toggle-custom-url custom-control custom-switch mt-4">#}
+        {#                <input type="checkbox" class="custom-control-input" id="toggle-custom-url" checked>#}
+        {#                <label class="custom-control-label text-cus-dark" for="toggle-custom-url">#}
+        {#                    <b>Custom URL</b></label>#}
+        {#            </div>#}
+        {#            <div style="padding-left: 37px">#}
+        {#                <div class="d-flex flex-row form-group">#}
+        {#                    <div class="text-cus-dark d-flex justify-content-center align-items-center mr-3">#}
+        {#                        <b>www.givingpilot.com/</b>#}
+        {#                    </div>#}
+        {#                    <input type="text" class="form-control" placeholder="type here ...">#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+    <div class="alert alert-danger checking-process d-none">You should complete the following process. <br><span
+            class="detail-process"></span></div>
+    <div class="bottom">
+        <div class="back btn-cus btn-cus-primary mr-3" onclick="onOtherOptionsBack()">Back</div>
+        <div class="next btn-cus btn-cus-secondary" onclick="onOtherOptionsNext()">Preview</div>
+    </div>
+    <div class="hidden-field">
+        <input type="text" class="save-url" value="{% url 'dashboard:new_campaign_process' 'other_options' %}" hidden>
+        <input type="text" class="preview-url" value="{% url 'dashboard:cf_public_preview' campaign_id %}" hidden>
+    </div>
+</div>

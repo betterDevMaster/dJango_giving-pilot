@@ -1,0 +1,89 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+{% block title %}
+    GivingPilot Create a New Campaign
+{% endblock %}
+{% block extra_style %}
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs@1.5.11/dist/cropper.css" crossorigin="anonymous">
+{% endblock %}
+{% block content %}
+    <div class="d-flex flex-row side-bar-tab-info" data-tab-link="create-new-campaign">
+        <div class="campaign-sidebar p-0">
+            {% include 'dashboard/new_campaign/_campaign_sidebar.html' %}
+        </div>
+        <div class="w-100 m-0">
+            <div class="d-md-none d-lg-none d-xl-none">
+                <div class="campaign-sidebar-mobile  p-0">
+                    {% include 'dashboard/new_campaign/_campaign_sidebar_mobile.html' %}
+                </div>
+            </div>
+            {% block campaign_content %}
+                {% include 'dashboard/new_campaign/process/terms_and_conditions.html' %}
+                {% include 'dashboard/new_campaign/process/basic_info.html' %}
+                {% include 'dashboard/new_campaign/process/about_campaign.html' %}
+                {% include 'dashboard/new_campaign/process/about_you.html' %}
+                {% include 'dashboard/new_campaign/process/other_options.html' %}
+            {% endblock %}
+            {% block subfooter %}
+                {% include 'dashboard/new_campaign/_sub_footer.html' %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="loading-gif position-fixed h-100 w-100 d-none" style="z-index: 1000; top: 0">
+        <div class="d-flex h-100 w-100 justify-content-center align-items-center">
+            <img src="{% static 'dashboard/assets/loading.gif' %}" alt="loading">
+        </div>
+    </div>
+    <div id="cropping-image-panel" class="cropping-image-panel">
+        <canvas id="img-to-crop"></canvas>
+        <button class="btn-crop btn-cus btn-cus-secondary border-0 mr-5">Crop Image</button>
+        <button class="cancel-crop btn-cus btn-cus-primary border-0 mr-5">Cancel</button>
+        <div class="canvas-container"></div>
+    </div>
+    {% block footer %}
+    {% endblock %}
+    <div id="from-vew-basic-info" class="hidden-field">
+        <input type="text" id="campaign_id" value="{{ campaign_id }}" hidden>
+        <input type="text" id="username" value="{{ user.username }}" hidden>
+        <input type="text" id="is-update" value="{{ is_update }}" hidden>
+        <input type="text" id="current-tab" value="{{ tab }}" hidden>
+        <input type="text" id="current-tag" value="{{ tag }}" hidden>
+        <input type="text" class="large-media-src"
+               value="{% if campaign.large_media %}{{ campaign.large_media.url }}{% endif %}" hidden>
+        <input type="text" class="large-image-src"
+               value="{% if campaign.large_image %}{{ campaign.large_image }}{% endif %}" hidden>
+        <input type="text" class="large-media-url" value="{{ campaign.large_media_url }}" hidden>
+        {% for small_media in small_medias %}
+            <div class="small-media-src-url">
+                <input type="text" class="small-media-src"
+                       value="{% if small_media.file %}{{ small_media.file.url }}{% endif %}" hidden>
+                <input type="text" class="small-image-src"
+                       value="{% if small_media.image %}{{ small_media.image }}{% endif %}" hidden>
+                <input type="text" class="small-media-url" value="{{ small_media.media_url }}" hidden>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block extra_script %}
+    <script src="https://unpkg.com/cropperjs@1.5.11/dist/cropper.js" crossorigin="anonymous"></script>
+    <script src="{% static 'accounts/assets/js/vendor/jquery-cropper.js' %}"></script>
+    <script src="https://cdn.tiny.cloud/1/yot88zy8f9azp98m1ni939szcbhxj1wrglkhd1lujfp2i8ke/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#nc-camp-description',
+            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+        });
+    </script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/new_campaign_basic.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/terms_and_conditions.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/basic_info.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/about_campaign.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/other_options.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/new_campaign/about_you.js' %}"></script>
+{% endblock %}

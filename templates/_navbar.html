@@ -1,0 +1,144 @@
+{% load static %}
+
+<div id="navbar" class="d-flex flex-column">
+    <div class="row top-bar w-100 m-0">
+        <div class="col-md-3 col-lg-4 col-xl-5 d-none d-md-flex"></div>
+        <div class="col-md-9 col-lg-8 col-xl-7 right-bar row m-0">
+            <div class="text-group col-8 d-none d-md-flex">
+                <div class="d-flex justify-content-between w-100">
+                    <a href="#">
+                        <div class="nav-text">
+                            Contact Us
+                        </div>
+                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">
+                            <div class="nav-text">
+                                Logout
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <div class="nav-text">
+                                Login
+                            </div>
+                        </a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard:home_page' %}" class="get-started">
+                            <div class="btn-cus-primary">
+                                Dashboard
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'sign_up' %}" class="get-started">
+                            <div class="btn-cus-primary">
+                                Get Started
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+
+
+            </div>
+            <div class="icon-group col-4 h-100 d-flex justify-content-around">
+                <a class="" href="#">
+                    <div class="facebook"><i class="icon fab fa-facebook-f"></i></div>
+                </a>
+                <a class="" href="#">
+                    <div class="twitter"><i class="icon fab fa-twitter"></i></div>
+                </a>
+                <a class="" href="#">
+                    <div class="linkedin"><i class="icon fab fa-linkedin-in"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar row w-100 m-0">
+        <div class="col-xl-5 col-md-4 d-flex align-items-center">
+            <div class="logo position-absolute">
+                <a href="{% if user.is_authenticated %}{% url 'dashboard:home_page' %}{% else %}/{% endif %}">{% include '_logo.html' %}</a>
+            </div>
+        </div>
+        <div class="col-xl-7 col-md-8 d-none d-md-flex">
+            <div class="right-bar d-flex justify-content-between w-100">
+                <a href="{% url 'dashboard:home_page_public' %}">
+                    <div class="nav-text">Explore Campaigns</div>
+                </a>
+                <a href="#">
+                    <div class="nav-text">how it works</div>
+                </a>
+                <a href="#">
+                    <div class="nav-text">why us</div>
+                </a>
+                <a href="#">
+                    <div class="nav-text">platform</div>
+                </a>
+            </div>
+        </div>
+        <div class="d-block d-md-none hamburger">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="d-flex d-none flex-column hamburger-icon-open">
+                    <span class="line"></span>
+                    <span class="line mt-auto"></span>
+                    <span class="line mt-auto"></span>
+                </div>
+                <div class="flex-column d-none hamburger-icon-close">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                </div>
+            </div>
+            <div class="drop-menu position-absolute d-none">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard:home_page' %}">
+                        <div class="text-cus-primary">Dashboard</div>
+                    </a>
+                {% else %}
+                    <a href="{% url 'sign_up' %}">
+                        <div class="text-cus-primary">Get Started</div>
+                    </a>
+                {% endif %}
+
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}">
+                        <div class="text-cus-primary mt-5">Login</div>
+                    </a>
+                {% else %}
+                    <a href="{% url 'logout' %}">
+                        <div class="text-cus-primary mt-5">LogOUT</div>
+                    </a>
+                {% endif %}
+                <a href="{% url 'dashboard:home_page_public' %}">
+                    <div class="text-cus-primary mt-5">Explore Campaigns</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">How it works</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Why US</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Platform</div>
+                </a>
+                <a href="#">
+                    <div class="text-cus-primary mt-5">Contact US</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.hamburger-icon-open').on('touchstart', function () {
+            $(this).removeClass('d-flex');
+            $('.hamburger-icon-close').addClass('d-flex');
+            $('.drop-menu').toggleClass('d-none');
+        });
+        $('.hamburger-icon-close').on('touchstart', function () {
+            $(this).removeClass('d-flex');
+            $('.hamburger-icon-open').addClass('d-flex');
+            $('.drop-menu').toggleClass('d-none');
+        });
+    })
+</script>

@@ -1,0 +1,536 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+
+{% block extra_style %}
+    <script src="{% static 'accounts/assets/js/vendor/Chart.bundle.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="cf-manager" class="crowdfunding-page center-page">
+        <div class="main-ad-img">
+            <img src="{% static 'dashboard/assets/img/campaign-main-ad-bg.png' %}" class="ad-img" alt="main-sd-bg">
+            <div class="share">
+                <div class="d-flex justify-content-between w-100">
+                    <div class="share-item text-white text-uppercase d-flex justify-content-center align-items-center">
+                        <b>Share</b></div>
+                    <div class="share-item"><img src="{% static 'dashboard/assets/img/whatsapp-png.png' %}" class="img"
+                                                 alt="whatsapp"></div>
+                    <div class="share-item"><img src="{% static 'dashboard/assets/img/facebook-png.png' %}" class="img"
+                                                 alt="whatsapp"></div>
+                    <div class="share-item"><img src="{% static 'dashboard/assets/img/message-png.png' %}" class="img"
+                                                 alt="whatsapp"></div>
+                    <div class="share-item"><img src="{% static 'dashboard/assets/img/email-png.png' %}" class="img"
+                                                 alt="whatsapp"></div>
+                    <div class="share-item"><img src="{% static 'dashboard/assets/img/detail.png' %}" class="img"
+                                                 alt="whatsapp"></div>
+                </div>
+            </div>
+            <div class="title">
+                COVID-19 <br> Aftermath NYC Fund
+            </div>
+        </div>
+        <div class="sub-ads MagicScroll mt-3"
+             data-options="width: 100%; speed: 4000; autoplay: 1000; items: 3; arrows: inside; lazyLoad: true;"
+             data-mobile-options="items: 1; speed: 100; autoplay: 5000;">
+            <div class="sub-ad">
+                <iframe src="https://player.vimeo.com/video/67394349" alt="video" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="sub-ad"><img src="{% static 'dashboard/assets/img/sub-ads-1.png' %}" class="img" alt="sub"/>
+            </div>
+            <div class="sub-ad">
+                <iframe src="https://player.vimeo.com/video/67394349" alt="video" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="sub-ad"><img src="{% static 'dashboard/assets/img/sub-ads-2.png' %}" alt="youtube"/></div>
+        </div>
+        <div class="pb-5 border-bottom mt-5 p-10">
+            <div class="text-cus-secondary text-uppercase small" style="letter-spacing: 2px">Fund use</div>
+            <div class="content-title">ABC INC. is raising money to help support the patients, <br>essential workers and
+                medical staffs on behalf of WHO.
+            </div>
+        </div>
+        <div class="mt-5 pb-5 border-bottom p-10">
+            <div class="text-cus-secondary text-uppercase mt-5">About the campaign</div>
+            <p class="mt-3">
+                At vero eos censes tantas res gessisse sine causa? quae fuerit causa, nollem. Omne animal, simul atque
+                natum sit, amet, consectetur, adipisci velit, sed quia voluptas. Sed ut dolore suo sanciret militaris
+                imperii disciplinam exercitumque in gravissimo bello animadversionis. Laudem et via procedat oratio
+                quaerimus igitur, quid iudicat, quo enim maxime consuevit.</p>
+            <p>
+                At vero eos censes tantas res gessisse sine causa? quae fuerit causa, nollem. Omne animal, simul atque
+                natum sit, amet, consectetur, adipisci velit, sed quia voluptas. Sed ut dolore suo sanciret militaris
+                imperii disciplinam exercitumque in gravissimo bello animadversionis. Laudem et via procedat oratio
+                quaerimus igitur, quid iudicat, quo enim maxime consuevit.At vero eos censes tantas res gessisse sine
+                causa? quae fuerit causa, nollem. Omne animal, simul atque natum sit, amet, consectetur, adipisci velit,
+                sed quia voluptas. Sed ut dolore suo sanciret militaris imperii disciplinam exercitumque in gravissimo
+                bello animadversionis. Laudem et via procedat oratio quaerimus igitur, quid iudicat, quo enim maxime
+                consuevit.</p>
+            <p>
+                At vero eos censes tantas res gessisse sine causa? quae fuerit causa, nollem. Omne animal, simul atque
+                natum sit, amet, consectetur, adipisci velit, sed quia voluptas. Sed ut dolore suo sanciret militaris
+                imperii disciplinam exercitumque in gravissimo bello animadversionis. Laudem et via procedat oratio
+                quaerimus igitur, quid iudicat.
+            </p>
+        </div>
+        {% include 'dashboard/crowdfunding/manager/_right_bar_on_mobile.html' %}
+        <div class="post-updates manage-info p-10 pt-5 pb-5 border-bottom">
+            <div class="form-group with-bg-white">
+                <div class="text-cus-secondary ls-2"> POST UPDATES</div>
+                <textarea class="mt-2"></textarea>
+                <div class="text-cus-secondary ls-2 mt-3"> POST AS</div>
+                <div class="row mt-2">
+                    <div class="col-md-10 col-lg-9 col-xl-10 mb-3 mb-md-0">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2 col-lg-3 col-xl-2">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn-cus btn-cus-secondary border-0">POST</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="updates mt-3">
+                <div class="updates-content mt-4">
+                    <div class="update mt-3">
+                        <div class="photo"></div>
+                        <div class="info-group">
+                            <div class="info-and-detail">
+                                <div class="info">
+                                    <div class="name">Jeffrey Washington</div>
+                                    <div class="date">12:24AM, 12-May 2020</div>
+                                </div>
+                                <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                </div>
+                            </div>
+                            <div class="update-text">
+                                At vero eos censes tantas res gessisse sine causa? quae fuerit causa, nollem. Omne
+                                animal, simul atque natum sit, amet, consectetur, adipisci velit, sed quia voluptas. Sed
+                                ut dolore suo sanciret militaris imperii disciplinam exercitumque in gravissimo bello
+                                animadversionis. Laudem et via procedat oratio quaerimus igitur, quid iudicat, quo enim
+                                maxime consuevit.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <button class="btn-cus btn-cus-primary">Load more posts ...</button>
+                </div>
+            </div>
+        </div>
+        <div class="fundraising-summary p-10 mt-5 pb-5 border-bottom">
+            <div class="title">
+                <div class="text-uppercase ls-2 text-cus-secondary">Fund Raising Summary</div>
+                <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}" class="img" alt="detail">
+                </div>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col-xl-9">
+                    <div class="row">
+                        <div class="col-md-4 item">
+                            <div class="item-img">
+                                <img src="{% static 'dashboard/assets/img/pointer-png.png' %}" class="img" alt="point">
+                                <div class="ml-2 text-cus-dark small">Goal</div>
+                            </div>
+                            <div class="item-text" style="color: #00aeef">$2,000</div>
+                        </div>
+                        <div class="col-md-4 item">
+                            <div class="item-img">
+                                <img src="{% static 'dashboard/assets/img/chart-line-png.png' %}" class="img"
+                                     alt="point">
+                                <div class="ml-2 text-cus-dark small">Raised</div>
+                            </div>
+                            <div class="item-text" style="color: #7bc581">$1,500</div>
+                        </div>
+                        <div class="col-md-4 item">
+                            <div class="item-img">
+                                <img src="{% static 'dashboard/assets/img/hands-helping-png.png' %}" class="img"
+                                     alt="point">
+                                <div class="ml-2 text-cus-dark small">Total Contributors</div>
+                            </div>
+                            <div class="item-text">134</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 p-0 mt-4 mt-xl-0">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <button class="btn-cus btn-cus-secondary border-0 w-100">Export As ...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-10 pt-5 border-bottom pb-5">
+            <div class="goal-amount-example">
+                <div class="text-cus-secondary text-uppercase ls-2">Fundraising Progress</div>
+                <div class="amount-charged mt-2">
+                    <div><span class="raised text-cus-dark"><b>$6,100</b></span> of $15,000 raised
+                    </div>
+                    <div class="progress-bar mt-1">
+                        <div class="full-bar" style="background-color: #e5f6fd!important;"></div>
+                        <div class="filled-bar">
+                            <div class="position-relative">
+                                <div class="vertical-bar"></div>
+                                <div class="circle"></div>
+                                <div class="raised">$6,100</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex justify-content-between mt-1 mb-2">
+                        <div class="text-cus-dark"><b>$0.00</b></div>
+                        <div class="goal-amount text-cus-dark"><b>$6,000</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-10 pt-5 border-bottom pb-5">
+            <div class="chart">
+                <div class="text-cus-secondary text-uppercase ls-2">Progress breakdown</div>
+                <div class="d-flex justify-content-end">
+                    <div class="form-group with-icon p-0 m-0" style="width: 200px">
+                        <select name="" class="form-control">
+                            <option>Last 7 Days</option>
+                            <option>1</option>
+                            <option>3</option>
+                        </select>
+                        <div class="icon"><i class="fas fa-chevron-down text-cus-primary"></i></div>
+                    </div>
+                    <div class="detail ml-3 d-flex align-items-center">
+                        <img src="{% static 'dashboard/assets/img/detail.png' %}">
+                    </div>
+                </div>
+                <div class="mt-4" style="width: 100%; height: auto">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="p-10 mt-5">
+            <div class="members-and-contributors pb-md-5 row">
+                <div class="members col-xl-6 mb-5 mb-xl-0 row-item">
+                    <div class="text-uppercase text-cus-secondary ls-2"> Managers & Members</div>
+                    <div class="search-bar-group mt-2">
+                        <input type="text" id="search-member" class="search-bar with-plus" placeholder="Search Manager"
+                               onkeyup="onSearchMembers()">
+                        <div class="search-icon"><i class="fas fa-search"></i></div>
+                        <div class="plus-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="member-group" class="member-group mt-3">
+                            <tr>
+                                <td class="member w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-2">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="role">Administrator</div>
+                                        <div class="to-message"><img
+                                                src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                                width="16px"><span
+                                                class=" ml-2">message</span></div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="member w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-2">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="role">Administrator</div>
+                                        <div class="to-message"><img
+                                                src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                                width="16px"><span
+                                                class=" ml-2">message</span></div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="member w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-2">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="role">Administrator</div>
+                                        <div class="to-message"><img
+                                                src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                                width="16px"><span
+                                                class=" ml-2">message</span></div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="member w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-2">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="role">Administrator</div>
+                                        <div class="to-message"><img
+                                                src="{% static 'dashboard/assets/img/message-png.png' %}"
+                                                width="16px"><span
+                                                class=" ml-2">message</span></div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="contributors col-xl-6 row-item">
+                    <div class="text-uppercase text-cus-secondary ls-2">Contributors</div>
+                    <div class="search-bar-group mt-2">
+                        <input type="text" id="search-contributor" class="search-bar" placeholder="Search Contributors"
+                               onkeyup="onSearchContributors()">
+                        <div class="search-icon"><i class="fas fa-search"></i></div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="contributor-group" class="contributor-group mt-3">
+                            <tr>
+                                <td class="contributor w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-4">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="amount">$1,250</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contributor w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-4">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="amount">$1,250</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contributor w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-4">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="amount">$1,250</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contributor w-100">
+                                    <div class="photo"></div>
+                                    <div class="info ml-4">
+                                        <div class="name">Jeffrey Washington</div>
+                                        <div class="amount">$1,250</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center ml-auto">
+                                        <div class="detail"><img src="{% static 'dashboard/assets/img/detail.png' %}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contributor-detail">
+        <div class="detail-body">
+            <div class="close-icon text-cus-primary">&times;</div>
+            <div class="text-cus-secondary text-uppercase ls-2">Contributor details</div>
+            <div class="personal-info mt-2">
+                <div class="photo"></div>
+                <div class="info">
+                    <div class="name">Jeffrey Washington</div>
+                    <div class="email">test@test.com</div>
+                </div>
+                <div class="message">
+                    <img src="{% static 'dashboard/assets/img/message-png.png' %}" class="img" alt="message">
+                </div>
+            </div>
+            <div class="payment-info mt-3">
+                <div class="text-uppercase text-cus-secondary ls-2">Payment Details</div>
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <div class="text-cus-secondary">Amount</div>
+                        <div class="text-cus-dark small"> $100</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="text-cus-secondary">Payment Method</div>
+                        <div class="text-cus-dark small"> Credit Card <br> ID 231349834-093</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="text-cus-secondary">Date</div>
+                        <div class="text-cus-dark small">
+                            12 July, 2020 <br> 8:23 AM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block right-bar %}
+    {% include 'dashboard/crowdfunding/manager/_right_bar_on_pc.html' %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block extra_script %}
+    <script>
+        function onSearchMembers() {
+            // Declare variables
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search-member");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("member-group");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function onSearchContributors() {
+            // Declare variables
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search-contributor");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("contributor-group");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $(".table-wrapper").slimScroll({
+                size: '8px',
+                width: '100%',
+                height: '100%',
+                color: 'lightgray',
+                allowPageScroll: true,
+            });
+        });
+
+        $(function () {
+            $("#frame-right-bar-on-pc").slimScroll({
+                size: '18px',
+                height: '100%',
+                color: 'lightgray',
+                allowPageScroll: true,
+            });
+        });
+
+        $('.contributor-group .detail img').click(function (e) {
+            const contributorDetail = $('#contributor-detail');
+            console.log(e.pageX, e.pageY);
+            const width = window.innerWidth <= 576 ? 300 : 500;
+            const heigh = window.innerWidth <= 576 ? 300 : 240;
+            contributorDetail.css({left: e.pageX - width});
+            contributorDetail.css({top: e.pageY - heigh});
+            contributorDetail.show();
+        })
+        $('.detail-body .close-icon').click(function () {
+            $('#contributor-detail').hide();
+        })
+    </script>
+    <script>
+        let options = {
+            type: 'line',
+            data: {
+                labels: ["12 Jun", "13 Jun", "14 Jun", "15 Jun", "16 Jun", "17 Jun"],
+                datasets: [
+                    {
+                        label: '# of Votes',
+                        backgroundColor: '#8cdaf8',
+                        borderColor: 'none',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            reverse: false,
+                            callback: function (value, index, values) {
+                                return value
+                            }
+                        },
+                        position: 'right',
+                        gridLines: {
+                            color: '#e5f6fd',
+                        },
+                        layout: {
+                            padding: {
+                                right: 50
+                            }
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            reverse: true,
+                            beginAtZero: true,
+                        },
+                        gridLines: {
+                            color: '#e5f6fd',
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        tension: 0.0001
+                    }
+                }
+            }
+        }
+        let ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, options);
+    </script>
+{% endblock %}

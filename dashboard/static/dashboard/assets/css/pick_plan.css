@@ -1,0 +1,158 @@
+#pick-plan {
+  padding: 3% 10% 0 10%;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 992px) {
+  #pick-plan {
+    padding: 3% 5% 0 5%;
+  }
+}
+
+#pick-plan .title {
+  color: #0a1f44;
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: 0.6px;
+}
+
+#pick-plan .plan-content {
+  width: 100%;
+}
+
+#pick-plan .plan-content .plan-table {
+  width: 100%;
+  color: #0a1f44;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+}
+
+#pick-plan .plan-content .plan-table .plan-sort {
+  color: #0a1f44;
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: 0.5px;
+}
+
+#pick-plan .plan-content .plan-table .plan-sort th {
+  padding: 10px 20px 10px 20px;
+}
+
+#pick-plan .plan-content .plan-table .plan-sort th .plan-container {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+}
+
+#pick-plan .plan-content .plan-table .plan-sort th .plan-container .svg {
+  height: 100px;
+  position: relative;
+}
+
+#pick-plan .plan-content .plan-table .plan-sort th .plan-container .svg svg {
+  position: absolute;
+  bottom: 0;
+}
+
+#pick-plan .plan-content .plan-table .plan-price th:not(:first-child) {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #e6e8ec;
+}
+
+#pick-plan .plan-content .plan-table .plan-price th:last-child {
+  border-right: none;
+}
+
+#pick-plan .plan-content .plan-table .plan-price .price {
+  color: #00aeef;
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: 0.55px;
+  margin-right: 10px;
+}
+
+#pick-plan .plan-content .plan-table .plan-price .price sup {
+  margin-left: 5px;
+  color: #223B60 !important;
+  font-size: 14px !important;
+}
+
+#pick-plan .plan-content .plan-table .show-comparison {
+  height: 80px;
+}
+
+#pick-plan .plan-content .plan-table .show-comparison td div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+#pick-plan .plan-content .plan-table .show-comparison td div button {
+  border: none;
+  height: 35px;
+}
+
+#pick-plan .plan-content .plan-table .checked:before {
+  content: '\f058';
+  color: #00aeef;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+#pick-plan .plan-content .plan-table .unchecked:before {
+  content: '\f057';
+  color: #6b7c94;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+#pick-plan .plan-content .plan-table tr {
+  height: 45px;
+}
+
+#pick-plan .plan-content .plan-table tr td {
+  border: 1px solid #e6e8ec;
+}
+
+#pick-plan .plan-content .plan-table tr td:not(:first-child) {
+  text-align: center;
+}
+
+#pick-plan .plan-content .plan-table tr td:first-child {
+  color: #0a1f44;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  border-left: none;
+}
+
+#pick-plan .plan-content .plan-table tr td:last-child {
+  border-right: none;
+}
+
+#pick-plan .plan-content .plan-table tr:last-child td {
+  border-bottom: none;
+  padding: 10px 20px 10px 20px;
+}
+
+#pick-plan .plan-content .plan-table tr:last-child td button {
+  height: 35px;
+}
+
+/*# sourceMappingURL=pick_plan.css.map */
